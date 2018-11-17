@@ -26,11 +26,24 @@ public class InputManager_Shems : MonoBehaviour {
 
             if (Physics.Raycast(ray, out hit))
             {
-                Debug.Log(hit.transform.name);
+                //Debug.Log(hit.transform.name);
                 obj = hit.transform.gameObject;
-                obj.GetComponent<Renderer>().material.shader = Shader.Find("Specular");
-                obj.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
+                //obj.GetComponent<Renderer>().material.shader = Shader.Find("Specular");
+                //obj.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
+                if (obj.tag == "Building")
+                {
+                    //TO DO
+                    //modify the bottom of the screen accroding to the building
+                }
+
+                if (obj.tag == "Freearea")
+                {
+                    //TO DO
+                    //modify the bottom of the screen to follow the patern etablished
+                }
             }
+
+
         }
     }
 }
