@@ -82,11 +82,14 @@ TagManager:
   - name: BuildingsLine8
     uniqueID: 65330017
     locked: 0
+  - name: Characters
+    uniqueID: 1700035699
+    locked: 0
   - name: CityWallFront
     uniqueID: 2297107257
     locked: 0
-  - name: Characters
-    uniqueID: 1700035699
+  - name: Foreground
+    uniqueID: 3920554607
     locked: 0
   - name: UIMain
     uniqueID: 3009771971

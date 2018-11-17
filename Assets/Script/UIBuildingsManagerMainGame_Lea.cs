@@ -105,6 +105,7 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
             string layerName = selectedTile.GetComponent<SpriteRenderer>().sortingLayerName;
             GameObject newBuilding = Instantiate(housePrefabs, position, Quaternion.identity, city.transform);
             newBuilding.GetComponent<SpriteRenderer>().sortingLayerName = layerName;
+            city.GetComponent<CityShems>().SetNumberOfHousesLVL1(city.GetComponent<CityShems>().GetNumberOfHousesLVL1() + 1);
             GameObject oldObject = selectedTile;
             selectedTile = newBuilding;
             Destroy(oldObject);
@@ -124,6 +125,7 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
             string layerName = selectedTile.GetComponent<SpriteRenderer>().sortingLayerName;
             GameObject newBuilding = Instantiate(farmPrefabs, position, Quaternion.identity, city.transform);
             newBuilding.GetComponent<SpriteRenderer>().sortingLayerName = layerName;
+            city.GetComponent<CityShems>().SetNumberOfFieldsLVL1(city.GetComponent<CityShems>().GetNumberOfFieldsLVL1() + 1);
             GameObject oldObject = selectedTile;
             selectedTile = newBuilding;
             Destroy(oldObject);
