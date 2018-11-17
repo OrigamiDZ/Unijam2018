@@ -3203,7 +3203,8 @@ MonoBehaviour:
   capacityHouseLVL2: 20
   numberOfSacrified: 0
   food_consumed_by_hab: 1
-  fertilityRate: 0
+  fertilityRate: 0.1
+  deathRateWhenNoFood: 0.2
 --- !u!4 &1164949969
 Transform:
   m_ObjectHideFlags: 0
