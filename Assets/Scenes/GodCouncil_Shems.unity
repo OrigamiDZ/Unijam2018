@@ -391,6 +391,36 @@ Prefab:
       propertyPath: m_Name
       value: DoorText
       objectReference: {fileID: 0}
+    - target: {fileID: 223879322195894348, guid: 065a8b98c313b0a46911bf63c59fbf8e,
+        type: 2}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224979655959996580, guid: 065a8b98c313b0a46911bf63c59fbf8e,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224979655959996580, guid: 065a8b98c313b0a46911bf63c59fbf8e,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224979655959996580, guid: 065a8b98c313b0a46911bf63c59fbf8e,
+        type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224786683494814710, guid: 065a8b98c313b0a46911bf63c59fbf8e,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 224786683494814710, guid: 065a8b98c313b0a46911bf63c59fbf8e,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0.85
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 065a8b98c313b0a46911bf63c59fbf8e, type: 2}
   m_IsPrefabAsset: 0

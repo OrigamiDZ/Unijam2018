@@ -37,7 +37,7 @@ public class InputManagerGodCouncil_Shems : MonoBehaviour {
         {
             Debug.Log("escape pressed");
         }
-
+        //Debug.Log(canvas.transform.position.x);
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
@@ -52,7 +52,7 @@ public class InputManagerGodCouncil_Shems : MonoBehaviour {
                     if (obj.tag == "Door")
                     {
                         canvas.SetActive(true);
-                        canvas.transform.position = obj.transform.position;
+                        transform.position.Set(0, 0, 0);
                     }
                 }
             }
