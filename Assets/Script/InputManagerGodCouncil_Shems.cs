@@ -26,13 +26,10 @@ public class InputManagerGodCouncil_Shems : MonoBehaviour {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                Debug.Log(hit.transform.name);
+                //Debug.Log(hit.transform.name);
                 obj = hit.transform.gameObject;
-                //obj.GetComponent<Renderer>().material.shader = Shader.Find("Specular");
-                //obj.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
                 if (obj.tag == "Door")
                 {
-                    Debug.Log("touché");
                     Instantiate(canvas, obj.transform);
                 }
             }
