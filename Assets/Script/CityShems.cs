@@ -125,15 +125,14 @@ public class CityShems : MonoBehaviour {
     IEnumerator UpdateOfRessources()
     {
         while (true)
-        {
-           
+        {           
             // recalcul of the max population
             maxpopulation = numberOfHousesLVL1 * capacityHouseLVL1 + numberOfHousesLVL2 * capacityHouseLVL2;
 
             // update of the population
-            if (people + people*fertilityRate <= maxpopulation)
+            int babies = (int)(people * fertilityRate) + 1;
+            if (people + babies <= maxpopulation)
             {
-                int babies = (int)(people * fertilityRate) + 1;
                 people = people + babies;
             }
             else
