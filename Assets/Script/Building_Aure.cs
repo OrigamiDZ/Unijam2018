@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Building : MonoBehaviour {
+public class Building_Aure : MonoBehaviour {
 
     [SerializeField]
     private int deltaHabitants;

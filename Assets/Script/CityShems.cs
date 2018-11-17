@@ -19,6 +19,8 @@ public class CityShems : MonoBehaviour {
     private int delta_people;
     [SerializeField]
     private int delta_souls;
+    [SerializeField]
+    private int food_consumed_by_hab;
 
 
     //Getter
@@ -54,6 +56,12 @@ public class CityShems : MonoBehaviour {
         return delta_souls;
     }
 
+    public int Get_food_consumed_by_hab()
+    {
+        return food_consumed_by_hab;
+    }
+
+
     public void Set_food(int setfood)
     {
         food = setfood;
@@ -83,15 +91,30 @@ public class CityShems : MonoBehaviour {
         delta_souls = setdelta_souls;
     }
 
-
-    public void Lunar_Cycle_Update()
+    public void Set_food_consumed_by_hab(int setfood_consumed_by_hab)
     {
+        food_consumed_by_hab = setfood_consumed_by_hab;
     }
 
+
+    public void update_delta_food()
+    {
+        delta_food = food_consumed_by_hab * people;
+    }
     public void update_deltas()
     {
 
     }
+
+
+    public void Lunar_Cycle_Update()
+    {
+        food += delta_food;
+        people += delta_people;
+        souls += delta_souls;
+        update_delta_food();
+    }
+   
 
     // Use this for initialization
     void Start () {
