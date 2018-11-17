@@ -6,10 +6,6 @@ using UnityEngine;
 public class InputManager_Shems : MonoBehaviour {
 
     private GameObject obj;
-    [SerializeField]
-    private GameObject MainUI;
-    [SerializeField]
-    private Camera camera;
 
 	// Use this for initialization
 	void Start () {
@@ -25,10 +21,10 @@ public class InputManager_Shems : MonoBehaviour {
 
         if (Input.GetMouseButtonDown(0))
         {
-            Ray2D ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast( camera.transform.position, Input.mousePosition);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
 
-            if (Physics2D.Raycast(hit, ray)
+            if (Physics.Raycast(ray, out hit))
             {
                 Debug.Log(hit.transform.name);
                 obj = hit.transform.gameObject;
@@ -36,8 +32,8 @@ public class InputManager_Shems : MonoBehaviour {
                 //obj.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
                 if (obj.tag == "Building")
                 {
-                    Debug.Log("Click on building");
-                    MainUI.GetComponent<UIBuildingsManagerMainGame_Lea>().OnBuildingInteraction(obj);
+                    //TO DO
+                    //modify the bottom of the screen accroding to the building
                 }
             }
 
