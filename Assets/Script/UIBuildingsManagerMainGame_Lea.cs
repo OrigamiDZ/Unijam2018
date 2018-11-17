@@ -16,7 +16,7 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
     public void OnBuildingInteraction(GameObject Building)
     {
         UIBuildings.SetActive(true);
-        BuildingNameText.text = Building.GetComponent<Building_Aure>().GetType().ToString();
+        BuildingNameText.text = Building.GetComponent<Building_Aure>().getBuildingType().ToString();
         BuildingSprite.sprite = Building.GetComponent<Building_Aure>().getSprite();
         BuildingEffects.text = getEffectsBuilding(Building);
     }
@@ -38,7 +38,7 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
         }
         if (Building.GetComponent<Building_Aure>().getDeltaInhabitants() != 0)
         {
-            buildingEffects += "Inhabitants ";
+            buildingEffects += "\nInhabitants ";
             if (Building.GetComponent<Building_Aure>().getDeltaInhabitants() > 0)
             {
                 buildingEffects += "+ " + Building.GetComponent<Building_Aure>().getDeltaInhabitants().ToString() + " ";
@@ -50,7 +50,7 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
         }
         if (Building.GetComponent<Building_Aure>().getDeltaSouls() != 0)
         {
-            buildingEffects += "Souls ";
+            buildingEffects += "\nSouls ";
             if (Building.GetComponent<Building_Aure>().getDeltaSouls() > 0)
             {
                 buildingEffects += "+ " + Building.GetComponent<Building_Aure>().getDeltaSouls().ToString() + " ";

@@ -288,7 +288,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 372.1, y: -277}
+  m_AnchoredPosition: {x: 445, y: -297}
   m_SizeDelta: {x: 79.8, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &80864529
@@ -469,7 +469,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -20.5, y: -280.1}
+  m_AnchoredPosition: {x: -107, y: -269}
   m_SizeDelta: {x: 88.2, y: 83.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &331468021
@@ -607,7 +607,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 39, y: -207.6}
+  m_AnchoredPosition: {x: -94, y: -186}
   m_SizeDelta: {x: 265, y: 44.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &406039067
@@ -1634,7 +1634,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 494.3, y: -276.77}
+  m_AnchoredPosition: {x: 565, y: -295}
   m_SizeDelta: {x: 72.4, y: 75.45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &731960543
@@ -2040,8 +2040,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 151.7, y: -268.48}
-  m_SizeDelta: {x: 226.6, y: 36.95}
+  m_AnchoredPosition: {x: 306.2, y: -247}
+  m_SizeDelta: {x: 703.7, y: 64.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &888968720
 MonoBehaviour:
@@ -2251,7 +2251,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1081, y: 366}
+  m_AnchoredPosition: {x: 1081, y: 422}
   m_SizeDelta: {x: 1920, y: 1080.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1000896650
@@ -2642,6 +2642,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1ff5e0dd50bf87448d5e135033b5354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 586702853}
+  mainUI: {fileID: 677173620}
 --- !u!1 &1319003478
 GameObject:
   m_ObjectHideFlags: 0
@@ -3559,9 +3561,10 @@ GameObject:
   - component: {fileID: 1801529039}
   - component: {fileID: 1801529041}
   - component: {fileID: 1801529040}
+  - component: {fileID: 1801529042}
   m_Layer: 0
   m_Name: Temple
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3901,6 +3904,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1801529042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1801529038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32059721acec34a4e839e3c38fc2e154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deltaInhabitants: 1
+  deltaFood: 3
+  deltaSouls: 2
+  type: 0
+  sprite: {fileID: 21300000, guid: c93046f01bdbfb64591067945fdd47ec, type: 3}
 --- !u!1 &1827910243
 GameObject:
   m_ObjectHideFlags: 0
