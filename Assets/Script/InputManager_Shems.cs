@@ -35,6 +35,11 @@ public class InputManager_Shems : MonoBehaviour {
                 {
                     Debug.Log("Click on building");
                 }
+                if (obj.tag == "Door")
+                {
+                    //TO DO 
+                    //button when you click on a door
+                }
             }
 
 
