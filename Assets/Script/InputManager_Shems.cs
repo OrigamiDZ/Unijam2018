@@ -7,8 +7,6 @@ public class InputManager_Shems : MonoBehaviour {
 
     private GameObject obj;
     [SerializeField]
-    private Camera cam;
-    [SerializeField]
     private GameObject mainUI;
 
 	// Use this for initialization
@@ -26,12 +24,13 @@ public class InputManager_Shems : MonoBehaviour {
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
-
-            if (hit != null && hit.collider != null)
+            RaycastHit hit = new RaycastHit();
+            Physics.Raycast(Camera.main.transform.position, ray.direction, out hit);
+            if (hit.collider)
             {
-                Debug.Log(hit.transform.name);
-                obj = hit.transform.gameObject;
+                Debug.DrawRay(ray.origin, ray.direction, Color.red, 100f);
+                Debug.Log(hit.collider.name);
+                obj = hit.collider.gameObject;
                 //obj.GetComponent<Renderer>().material.shader = Shader.Find("Specular");
                 //obj.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
                 if (obj.tag == "Building")

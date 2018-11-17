@@ -33,7 +33,7 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
             }
             else
             {
-                buildingEffects += "- " + Building.GetComponent<Building_Aure>().getDeltaFood().ToString() + " ";
+                buildingEffects += " " + Building.GetComponent<Building_Aure>().getDeltaFood().ToString() + " ";
             }
         }
         if (Building.GetComponent<Building_Aure>().getDeltaInhabitants() != 0)
