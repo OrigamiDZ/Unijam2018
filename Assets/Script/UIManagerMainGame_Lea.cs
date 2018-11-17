@@ -24,7 +24,7 @@ public class UIManagerMainGame_Lea : MonoBehaviour {
 	void Update () {
         //Set the different text for the different resources
 
-        PopulationNumberUI.text = City.GetComponent<CityShems>().Get_people().ToString() + " / " + City.GetComponent<CityShems>().Get_maxpopulation().ToString();
+        PopulationNumberUI.text = City.GetComponent<CityShems>().Get_people().ToString() + "/" + City.GetComponent<CityShems>().Get_maxpopulation().ToString();
         FoodNumberUI.text = City.GetComponent<CityShems>().Get_food().ToString();
         SoulsNumberUI.text = City.GetComponent<CityShems>().Get_souls().ToString();
         //MoralNumberUI.text = City.GetComponent<City>().globalMoral;

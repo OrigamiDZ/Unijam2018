@@ -141,7 +141,10 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
         if (selectedTile.GetComponent<Building_Aure>().lvl < 2 && selectedTile.GetComponent<Building_Aure>().costUpgrade1 <= city.GetComponent<CityShems>().Get_souls())
         {
             selectedTile.GetComponent<Building_Aure>().lvl++;
-            selectedTile.GetComponent<SpriteRenderer>().sprite = selectedTile.GetComponent<Building_Aure>().upgradedSprite;
+            if (selectedTile.GetComponent<Building_Aure>().getBuildingType() != EnumBuildingType_Lea.BuildingType.Temple)
+            {
+                selectedTile.GetComponent<SpriteRenderer>().sprite = selectedTile.GetComponent<Building_Aure>().upgradedSprite;
+            }
             selectedTile.GetComponent<Building_Aure>().setDeltaHabitants(selectedTile.GetComponent<Building_Aure>().deltaInhabitantsUp);
             selectedTile.GetComponent<Building_Aure>().setDeltaFood(selectedTile.GetComponent<Building_Aure>().deltaFoodUp);
             selectedTile.GetComponent<Building_Aure>().setDeltaSouls(selectedTile.GetComponent<Building_Aure>().deltaSoulsUp);
@@ -157,6 +160,12 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
                     Debug.Log("Upgrading farm");
                     city.GetComponent<CityShems>().SetNumberOfFieldsLVL1(city.GetComponent<CityShems>().GetNumberOfFieldsLVL1() - 1);
                     city.GetComponent<CityShems>().SetNumberOfFieldsLVL2(city.GetComponent<CityShems>().GetNumberOfFieldsLVL2() + 1);
+                    break;
+
+                case EnumBuildingType_Lea.BuildingType.Temple:
+                    Debug.Log("Upgrading temple");
+                    selectedTile.GetComponent<Building_Aure>().setDeltaSouls(selectedTile.GetComponent<Building_Aure>().deltaSoulsUp);
+                    city.GetComponent<CityShems>().SetNumberOfSacrified(selectedTile.GetComponent<Building_Aure>().getDeltaSouls());
                     break;
             }
         }
