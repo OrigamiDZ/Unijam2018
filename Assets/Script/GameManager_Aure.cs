@@ -13,7 +13,7 @@ public class GameManager_Aure: MonoBehaviour {
     [SerializeField]
     private float timeOfALunarCircle;
     [SerializeField]
-    private int percentChanceOfADisaster;
+    private float percentChanceOfADisaster;
 
     private CityShems cityScript;
 
