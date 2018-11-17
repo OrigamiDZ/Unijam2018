@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Fade_Shems : MonoBehaviour {
-
-    [SerializeField]
+    
     private Texture2D fadeOutTexture;
-    [SerializeField]
     private float fadeSpeed = 0.2f;
 
     private int drawDepth = -1000;

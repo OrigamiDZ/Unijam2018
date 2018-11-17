@@ -19,14 +19,16 @@ public class InputManagerGodCouncil_Shems : MonoBehaviour {
         canvas.SetActive(false);
     } 
 
-    public void YesPressed()
+    public void YesPressed(GameObject gam)
     {
-
+        gameObject.GetComponent<ZoomEffect_Shems>().setObj(gam);
+        gameObject.GetComponent<ZoomEffect_Shems>().setZoom(true);
+        gameObject.GetComponent<Fade_Shems>().BeginFade(1);
     }
 	void Start () {
         canvas.SetActive(false);
         noButton.onClick.AddListener(HideText);
-        yesButton.onClick.AddListener(YesPressed);
+        yesButton.onClick.AddListener(() => YesPressed(obj));
     }
     // Update is called once per frame
     void Update()

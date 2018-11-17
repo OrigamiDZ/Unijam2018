@@ -5,7 +5,7 @@ using UnityEngine;
 public class ZoomEffect_Shems : MonoBehaviour {
 
 
-    [SerializeField]
+    //[SerializeField]
     private GameObject obj;
     [SerializeField]
     private float speedRotate = 120;
@@ -13,19 +13,23 @@ public class ZoomEffect_Shems : MonoBehaviour {
     private GameObject cam;
     private bool zoom = false;
     private Vector3 center;
-	// Use this for initialization
-	void Start () {
-        center = obj.transform.position;
-	}
-	
+    // Use this for initialization
+    void Start()
+    {
+    }
+
+    public void setObj (GameObject gam)
+    {
+        obj = gam;
+            center = obj.transform.position;
+    }
+    public void setZoom(bool set)
+    {
+        zoom = set;
+    }
+
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown("escape"))
-        {
-            zoom = true;
-            gameObject.GetComponent<Fade_Shems>().BeginFade(1);
-
-        }
         if (zoom == true)
         {
             
@@ -33,7 +37,7 @@ public class ZoomEffect_Shems : MonoBehaviour {
             {
                 //rotate of the cam at the speedRotate speed on the Z axis with a transition toward an object
                 cam.transform.Rotate(Vector3.forward, Time.deltaTime * speedRotate);
-                cam.transform.position += (center - cam.transform.position)*Time.deltaTime*3;
+                cam.transform.position += (center - cam.transform.position)*Time.deltaTime*1;
             }
         }
 	}

@@ -191,6 +191,8 @@ GameObject:
   - component: {fileID: 486321084}
   - component: {fileID: 486321085}
   - component: {fileID: 486321086}
+  - component: {fileID: 486321088}
+  - component: {fileID: 486321087}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -223,7 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 10
-  door: {fileID: 1580015587743136, guid: f7bbbc2983fb8184893c5248db6906ce, type: 2}
+  door: {fileID: 1728812567922476, guid: 7f8ec3082f4f5d34a9068de725bb90e8, type: 2}
   cam: {fileID: 1443672683}
 --- !u!114 &486321086
 MonoBehaviour:
@@ -239,6 +241,30 @@ MonoBehaviour:
   canvas: {fileID: 698209565}
   yesButton: {fileID: 864893241}
   noButton: {fileID: 366994006}
+--- !u!114 &486321087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 486321083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bac6ffede29dff4180475b19af56bb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &486321088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 486321083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aff5d184a6fc254ebc19590dfd7c3f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedRotate: 120
+  cam: {fileID: 1443672683}
 --- !u!1 &698209565 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1722873433970030, guid: 065a8b98c313b0a46911bf63c59fbf8e,
