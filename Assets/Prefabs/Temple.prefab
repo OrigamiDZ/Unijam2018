@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4904550273861918}
   - component: {fileID: 212504989828516248}
-  - component: {fileID: 60265871771505142}
   - component: {fileID: 114354527426272794}
+  - component: {fileID: 65574076438856488}
   m_Layer: 0
   m_Name: Temple
   m_TagString: Building
@@ -42,50 +42,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &60265871771505142
-PolygonCollider2D:
+--- !u!65 &65574076438856488
+BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1500408491748734}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.44608885, y: 3.5110044}
-      - {x: -0.43446285, y: 3.2861576}
-      - {x: -0.71996576, y: 3.0269947}
-      - {x: -0.8656842, y: 2.4821367}
-      - {x: -1.4529067, y: 2.0373707}
-      - {x: -2.6509461, y: 1.3758831}
-      - {x: -4.0095067, y: -0.0044794083}
-      - {x: -2.2546678, y: -0.8735113}
-      - {x: 0.18642196, y: -2.1870127}
-      - {x: 1.4860859, y: -1.6435275}
-      - {x: 2.497848, y: -2.1799679}
-      - {x: 4.183587, y: -1.2258434}
-      - {x: 3.6656854, y: -0.4780016}
-      - {x: 4.38277, y: 0.0637722}
-      - {x: 4.402319, y: 0.13919926}
-      - {x: 3.5085263, y: 1.1903057}
-      - {x: 2.2735922, y: 1.9020472}
-      - {x: 1.9107537, y: 2.3234634}
-      - {x: 1.5078429, y: 2.4194183}
-      - {x: 1.3692662, y: 2.983076}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.380792, y: 3.1540635, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114354527426272794
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -99,7 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deltaInhabitants: 0
   deltaFood: 0
-  deltaSouls: 5
+  deltaSouls: 10
   type: 0
   sprite: {fileID: 21300000, guid: afb37dd73b4747d4a8b8a21e142a27e6, type: 3}
 --- !u!212 &212504989828516248

@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
     [SerializeField]
+    GameObject city;
+
+    [SerializeField]
     GameObject UIBuildings;
     [SerializeField]
     Text BuildingNameText;
@@ -15,6 +18,12 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
 
     [SerializeField]
     GameObject UIFreeArea;
+    [SerializeField]
+    GameObject housePrefabs;
+    [SerializeField]
+    GameObject farmPrefabs;
+
+    public GameObject selectedTile;
 
     private void Start()
     {
@@ -79,5 +88,44 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
     {
         UIBuildings.SetActive(false);
         UIFreeArea.SetActive(true);
+    }
+
+
+    public void BuildHouse()
+    {
+        Debug.Log(housePrefabs.GetComponent<Building_Aure>().buildingCost <= city.GetComponent<CityShems>().Get_souls());
+        if (housePrefabs.GetComponent<Building_Aure>().buildingCost <= city.GetComponent<CityShems>().Get_souls())
+        {
+            Debug.Log("Building house");
+            city.GetComponent<CityShems>().Set_souls(city.GetComponent<CityShems>().Get_souls() - housePrefabs.GetComponent<Building_Aure>().buildingCost);
+            Vector3 offset = new Vector3(10f, 18f, 0f);
+            Vector2 position = selectedTile.transform.position + offset;
+            string layerName = selectedTile.GetComponent<SpriteRenderer>().sortingLayerName;
+            GameObject newBuilding = Instantiate(housePrefabs, position, Quaternion.identity, city.transform);
+            newBuilding.GetComponent<SpriteRenderer>().sortingLayerName = layerName;
+            GameObject oldObject = selectedTile;
+            selectedTile = newBuilding;
+            Destroy(oldObject);
+            UIFreeArea.SetActive(false);
+        }
+    }
+
+    public void BuildFarm()
+    {
+        Debug.Log(housePrefabs.GetComponent<Building_Aure>().buildingCost <= city.GetComponent<CityShems>().Get_souls());
+        if (farmPrefabs.GetComponent<Building_Aure>().buildingCost <= city.GetComponent<CityShems>().Get_souls())
+        {
+            Debug.Log("Building farm");
+            city.GetComponent<CityShems>().Set_souls(city.GetComponent<CityShems>().Get_souls() - farmPrefabs.GetComponent<Building_Aure>().buildingCost);
+            Vector3 offset = new Vector3(8f, 22f, 0f);
+            Vector2 position = selectedTile.transform.position + offset;
+            string layerName = selectedTile.GetComponent<SpriteRenderer>().sortingLayerName;
+            GameObject newBuilding = Instantiate(farmPrefabs, position, Quaternion.identity, city.transform);
+            newBuilding.GetComponent<SpriteRenderer>().sortingLayerName = layerName;
+            GameObject oldObject = selectedTile;
+            selectedTile = newBuilding;
+            Destroy(oldObject);
+            UIFreeArea.SetActive(false);
+        }
     }
 }
