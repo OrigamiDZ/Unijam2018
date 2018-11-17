@@ -12,7 +12,6 @@ public class CityShems : MonoBehaviour {
     private int souls;
     [SerializeField]
     private int maxpopulation;
-    [SerializeField]
     private float time;
     [SerializeField]
     private int delta_food;
@@ -32,7 +31,7 @@ public class CityShems : MonoBehaviour {
     }
     public int Get_souls()
     {
-        return souls
+        return souls;
     }
     public int Get_maxpopulation()
     {
@@ -89,12 +88,18 @@ public class CityShems : MonoBehaviour {
     {
     }
 
+    public void update_deltas()
+    {
+
+    }
+
     // Use this for initialization
     void Start () {
-}
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		
+        time += Time.deltaTime;
 	}
 }
