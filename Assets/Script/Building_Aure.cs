@@ -6,12 +6,15 @@ public class Building_Aure : MonoBehaviour {
 
     [SerializeField]
     private int deltaInhabitants;
+    public int deltaInhabitantsUp;
 
     [SerializeField]
     private int deltaFood;
+    public int deltaFoodUp;
 
     [SerializeField]
     private int deltaSouls;
+    public int deltaSoulsUp;
 
     [SerializeField]
     private EnumBuildingType_Lea.BuildingType type;
@@ -48,6 +51,11 @@ public class Building_Aure : MonoBehaviour {
     public void setDeltaSouls(int souls)
     {
         deltaSouls = souls;
+    }
+
+    public void setDeltaFood(int food)
+    {
+        deltaFood = food;
     }
 
     public EnumBuildingType_Lea.BuildingType getBuildingType()
