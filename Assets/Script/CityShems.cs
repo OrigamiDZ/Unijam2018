@@ -98,9 +98,9 @@ public class CityShems : MonoBehaviour {
 
 
 
-    public void update_delta_food()
+    public void update_delta_food(int added_people_this_month)
     {
-        delta_food = food_consumed_by_hab * people;
+        delta_food -= food_consumed_by_hab * added_people_this_month;
     }
     public void calculate_deltas()
     {
@@ -113,9 +113,9 @@ public class CityShems : MonoBehaviour {
         for (int i = 0; i < children; ++i)
         {
             gameO = transform.GetChild(i).gameObject;
-            delta_food += gameO.GetComponent<Building>().getDeltaFood();
-            delta_people += gameO.GetComponent<Building>().getDeltaHabitants();
-            delta_souls += gameO.GetComponent<Building>().getDeltaSouls();
+            delta_food += gameO.GetComponent<Building_Aure>().getDeltaFood();
+            delta_people += gameO.GetComponent<Building_Aure>().getDeltaHabitants();
+            delta_souls += gameO.GetComponent<Building_Aure>().getDeltaSouls();
 
         }
         
@@ -125,9 +125,17 @@ public class CityShems : MonoBehaviour {
     public void Lunar_Cycle_Update()
     {
         food += delta_food;
-        people += delta_people;
+        if (people + delta_people <= maxpopulation)
+        {
+            people += delta_people;
+            update_delta_food(delta_people);
+        }
+        else
+        {
+            update_delta_food(maxpopulation-people);
+            people = maxpopulation;
+        }
         souls += delta_souls;
-        update_delta_food();
     }
    
 
