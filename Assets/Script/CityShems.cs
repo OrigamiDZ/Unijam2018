@@ -36,6 +36,8 @@ public class CityShems : MonoBehaviour {
     private int food_consumed_by_hab;
     [SerializeField]
     private float fertilityRate;
+    [SerializeField]
+    private float deathRateWhenNoFood;
 
     private int maxpopulation;
     private int lunarCycleNumber;
@@ -129,20 +131,35 @@ public class CityShems : MonoBehaviour {
             // recalcul of the max population
             maxpopulation = numberOfHousesLVL1 * capacityHouseLVL1 + numberOfHousesLVL2 * capacityHouseLVL2;
 
-            // update of the population
-            int babies = (int)(people * fertilityRate) + 1;
-            if (people + babies <= maxpopulation)
+
+            // update of the food
+            int foodProducted = numberOfFieldsLVL1 * productivityOfFieldsLVL1 + numberOfFieldsLVL2 * productivityOfFieldsLVL2;
+            int foodConsumed = people * food_consumed_by_hab;
+
+            if (food + foodProducted < foodConsumed)
             {
-                people = people + babies;
+                people = people - (int)(people * deathRateWhenNoFood);
+                food = 0;
+
             }
             else
             {
-                people = maxpopulation;
+                food = food + foodProducted - foodConsumed;
             }
 
-            // update of the food
-            food = food + numberOfFieldsLVL1 * productivityOfFieldsLVL1 + numberOfFieldsLVL2 * productivityOfFieldsLVL2 - people * food_consumed_by_hab;
-
+            // update of the population
+            if (food != 0)
+            {
+                int babies = (int)(people * fertilityRate) + 1;
+                if (people + babies <= maxpopulation)
+                {
+                    people = people + babies;
+                }
+                else
+                {
+                    people = maxpopulation;
+                }
+            }
             yield return new WaitForSeconds(1);
         }
     }
