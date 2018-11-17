@@ -42,7 +42,7 @@ public class InputManager_Shems : MonoBehaviour {
                 if(obj.tag == "FreeArea")
                 {
                     Debug.Log("Click on free area");
-                    mainUI.GetComponent<UIBuildingsManagerMainGame_Lea>().OnFreeAreaInteraction();
+                    mainUI.GetComponent<UIBuildingsManagerMainGame_Lea>().OnFreeAreaInteraction(obj);
                     mainUI.GetComponent<UIBuildingsManagerMainGame_Lea>().selectedTile = obj;
                 }
                 if (obj.tag == "Door")

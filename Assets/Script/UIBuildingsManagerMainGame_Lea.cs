@@ -15,6 +15,8 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
     Image BuildingSprite;
     [SerializeField]
     Text BuildingEffects;
+    public Text BuildingLVL;
+    public Text BuildingUpgradeCost;
 
     [SerializeField]
     GameObject UIFreeArea;
@@ -26,6 +28,11 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
     public GameObject selectedTile;
     private GameObject previousTile;
 
+    public AudioSource templeSelectSFX;
+    public AudioSource houseSelectSFX;
+    public AudioSource farmSelectSFX;
+    public AudioSource freeSelectSFX;
+    public AudioSource constructSFX;
     private void Start()
     {
         UIBuildings.SetActive(false);
@@ -38,6 +45,9 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
     {
         UIFreeArea.SetActive(false);
         UIBuildings.SetActive(true);
+        selectedTile = Building;
+        SelectTile();
+        SoundEffects();
         BuildingNameText.text = Building.GetComponent<Building_Aure>().getBuildingType().ToString();
         BuildingSprite.sprite = Building.GetComponent<Building_Aure>().getSprite();
         BuildingEffects.text = getEffectsBuilding(Building);
@@ -86,8 +96,29 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
     }
 
 
-    public void OnFreeAreaInteraction()
+    void SoundEffects()
     {
+        switch (selectedTile.GetComponent<Building_Aure>().getBuildingType())
+        {
+            case EnumBuildingType_Lea.BuildingType.Temple:
+                templeSelectSFX.Play();
+                break;
+
+            case EnumBuildingType_Lea.BuildingType.House:
+                houseSelectSFX.Play();
+                break;
+
+            case EnumBuildingType_Lea.BuildingType.Farm:
+                farmSelectSFX.Play();
+                break;
+        }
+    }
+
+    public void OnFreeAreaInteraction(GameObject Building)
+    {
+        freeSelectSFX.Play();
+        selectedTile = Building;
+        SelectTile();
         UIBuildings.SetActive(false);
         UIFreeArea.SetActive(true);
     }
@@ -98,6 +129,7 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
         Debug.Log(housePrefabs.GetComponent<Building_Aure>().buildingCost <= city.GetComponent<CityShems>().Get_souls());
         if (housePrefabs.GetComponent<Building_Aure>().buildingCost <= city.GetComponent<CityShems>().Get_souls())
         {
+            constructSFX.Play();
             Debug.Log("Building house");
             city.GetComponent<CityShems>().Set_souls(city.GetComponent<CityShems>().Get_souls() - housePrefabs.GetComponent<Building_Aure>().buildingCost);
             Vector3 offset = new Vector3(10f, 18f, 0f);
@@ -120,6 +152,7 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
         Debug.Log(housePrefabs.GetComponent<Building_Aure>().buildingCost <= city.GetComponent<CityShems>().Get_souls());
         if (farmPrefabs.GetComponent<Building_Aure>().buildingCost <= city.GetComponent<CityShems>().Get_souls())
         {
+            constructSFX.Play();
             Debug.Log("Building farm");
             city.GetComponent<CityShems>().Set_souls(city.GetComponent<CityShems>().Get_souls() - farmPrefabs.GetComponent<Building_Aure>().buildingCost);
             Vector3 offset = new Vector3(8f, 22f, 0f);
@@ -140,6 +173,7 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
     {
         if (selectedTile.GetComponent<Building_Aure>().lvl < 2 && selectedTile.GetComponent<Building_Aure>().costUpgrade1 <= city.GetComponent<CityShems>().Get_souls())
         {
+            constructSFX.Play();
             selectedTile.GetComponent<Building_Aure>().lvl++;
             if (selectedTile.GetComponent<Building_Aure>().getBuildingType() != EnumBuildingType_Lea.BuildingType.Temple)
             {
@@ -148,6 +182,7 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
             selectedTile.GetComponent<Building_Aure>().setDeltaHabitants(selectedTile.GetComponent<Building_Aure>().deltaInhabitantsUp);
             selectedTile.GetComponent<Building_Aure>().setDeltaFood(selectedTile.GetComponent<Building_Aure>().deltaFoodUp);
             selectedTile.GetComponent<Building_Aure>().setDeltaSouls(selectedTile.GetComponent<Building_Aure>().deltaSoulsUp);
+            selectedTile.GetComponent<Building_Aure>().selectedSprite = selectedTile.GetComponent<Building_Aure>().upgradedSelectSprite;
             city.GetComponent<CityShems>().Set_souls(city.GetComponent<CityShems>().Get_souls() - selectedTile.GetComponent<Building_Aure>().costUpgrade1);
             switch (selectedTile.GetComponent<Building_Aure>().getBuildingType()) {
                 case EnumBuildingType_Lea.BuildingType.House:
@@ -175,7 +210,7 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
     }
 
 
-    private void Update()
+    private void SelectTile()
     {
         if (selectedTile)
         {
