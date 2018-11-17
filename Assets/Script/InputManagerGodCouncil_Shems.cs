@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class InputManagerGodCouncil_Shems : MonoBehaviour {
@@ -13,6 +14,9 @@ public class InputManagerGodCouncil_Shems : MonoBehaviour {
     private Button yesButton;
     [SerializeField]
     private Button noButton;
+
+    private float timer=4f;
+    private bool beginTimer = false;
     // Use this for initialization
     public void HideText()
     {
@@ -52,10 +56,19 @@ public class InputManagerGodCouncil_Shems : MonoBehaviour {
                     if (obj.tag == "Door")
                     {
                         canvas.SetActive(true);
-                        transform.position.Set(0, 0, 0);
+                        beginTimer = true;
+                        //transform.position.Set(0, 0, 0);
                         canvas.transform.GetChild(0).GetComponent<RectTransform>().anchorMin = new Vector2(0.5f + obj.transform.position.x / 40, 0.85f);
                         canvas.transform.GetChild(0).GetComponent<RectTransform>().anchorMax = new Vector2(0.5f + obj.transform.position.x / 40, 0.85f);
                     }
+                }
+            }
+            if (beginTimer)
+            {
+                timer -= Time.deltaTime;
+                if (timer < 0)
+                {
+                    SceneManager.LoadScene("Heaven's Room_Shems");
                 }
             }
 
