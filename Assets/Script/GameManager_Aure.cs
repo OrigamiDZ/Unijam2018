@@ -79,8 +79,8 @@ public class GameManager_Aure: MonoBehaviour {
         my_disasters[randomDisaster].SetActive(true);
         my_disasters[randomDisaster].transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = 
             "- " + (int)(my_disasters[randomDisaster].GetComponent<Disaster_Aure>().GetPercentLostFood() * cityScript.Get_food()) + 
-            " nourritures \n " + 
-            (int)(my_disasters[randomDisaster].GetComponent<Disaster_Aure>().GetPercentLostSouls() * cityScript.Get_souls()) + 
+            " nourritures \n" +
+            "- " + (int)(my_disasters[randomDisaster].GetComponent<Disaster_Aure>().GetPercentLostSouls() * cityScript.Get_souls()) + 
             " habitants";
         PutGameInPause(true);
     }
