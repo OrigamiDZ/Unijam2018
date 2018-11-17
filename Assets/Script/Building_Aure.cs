@@ -27,7 +27,19 @@ public class Building_Aure : MonoBehaviour {
     public Sprite selectedSprite;
     public int lvl;
     public Sprite upgradedSprite;
+    public Sprite upgradedSelectSprite;
 
+    public bool isUpgradedLVL = false;
+    private bool isUpgradedSprite = false;
+
+    void Update()
+    {
+        if (isUpgradedLVL && !isUpgradedSprite)
+        {
+            isUpgradedSprite = true;
+            GetComponent<SpriteRenderer>().sprite = upgradedSprite;
+        }
+    }
     public int getDeltaInhabitants()
     {
         return deltaInhabitants;
