@@ -3281,7 +3281,7 @@ MonoBehaviour:
   capacityHouseLVL1: 20
   numberOfHousesLVL2: 0
   capacityHouseLVL2: 20
-  numberOfSacrified: 0
+  numberOfSacrified: 5
   food_consumed_by_hab: 1
   fertilityRate: 0.1
   deathRateWhenNoFood: 0.2
@@ -5678,6 +5678,16 @@ Prefab:
     - target: {fileID: 1805465616919070, guid: 5cb74953fc878bc48ab448a2b1fde1cd, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114422931862871842, guid: 5cb74953fc878bc48ab448a2b1fde1cd,
+        type: 2}
+      propertyPath: timeOfALunarCircle
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114422931862871842, guid: 5cb74953fc878bc48ab448a2b1fde1cd,
+        type: 2}
+      propertyPath: percentChanceOfADisaster
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cb74953fc878bc48ab448a2b1fde1cd, type: 2}

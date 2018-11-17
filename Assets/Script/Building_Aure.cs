@@ -23,6 +23,7 @@ public class Building_Aure : MonoBehaviour {
     public int costUpgrade1;
     public Sprite selectedSprite;
     public int lvl;
+    public Sprite upgradedSprite;
 
     public int getDeltaInhabitants()
     {

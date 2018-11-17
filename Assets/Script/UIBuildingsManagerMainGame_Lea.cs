@@ -117,12 +117,16 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
 
     public void upgradeHouse()
     {
-        if(selectedTile.GetComponent<Building_Aure>().lvl < 2)
+        if(selectedTile.GetComponent<Building_Aure>().lvl < 2 && selectedTile.GetComponent<Building_Aure>().costUpgrade1 <= city.GetComponent<CityShems>().Get_souls())
         {
+            Debug.Log("Upgrading house");
             selectedTile.GetComponent<Building_Aure>().lvl++;
-
+            selectedTile.GetComponent<SpriteRenderer>().sprite = selectedTile.GetComponent<Building_Aure>().upgradedSprite;
+            city.GetComponent<CityShems>().SetNumberOfHousesLVL1(city.GetComponent<CityShems>().GetNumberOfHousesLVL1() - 1);
+            city.GetComponent<CityShems>().SetNumberOfHousesLVL2(city.GetComponent<CityShems>().GetNumberOfHousesLVL2() + 1);
         }
     }
+
 
     public void BuildFarm()
     {
@@ -142,6 +146,18 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
             selectedTile = newBuilding;
             Destroy(oldObject);
             UIFreeArea.SetActive(false);
+        }
+    }
+
+    public void upgradeFarm()
+    {
+        if (selectedTile.GetComponent<Building_Aure>().lvl < 2 && selectedTile.GetComponent<Building_Aure>().costUpgrade1 <= city.GetComponent<CityShems>().Get_souls())
+        {
+            Debug.Log("Upgrading house");
+            selectedTile.GetComponent<Building_Aure>().lvl++;
+            selectedTile.GetComponent<SpriteRenderer>().sprite = selectedTile.GetComponent<Building_Aure>().upgradedSprite;
+            city.GetComponent<CityShems>().SetNumberOfFieldsLVL1(city.GetComponent<CityShems>().GetNumberOfFieldsLVL1() - 1);
+            city.GetComponent<CityShems>().SetNumberOfFieldsLVL2(city.GetComponent<CityShems>().GetNumberOfFieldsLVL2() + 1);
         }
     }
 
