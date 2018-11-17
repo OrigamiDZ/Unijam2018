@@ -11,27 +11,27 @@ public class Disaster_Aure : MonoBehaviour {
     private string textExplanatory;
 
     [SerializeField]
-    private int percentLostInhabitants;
+    private float percentLostInhabitants;
 
     [SerializeField]
-    private int percentLostFood;
+    private float percentLostFood;
 
     [SerializeField]
-    private int percentLostSouls;
+    private float percentLostSouls;
 
     private TextMeshProUGUI my_text;
 
-    public int GetPercentLostInhabitants()
+    public float GetPercentLostInhabitants()
     {
         return percentLostInhabitants;
     }
 
-    public int GetPercentLostFood()
+    public float GetPercentLostFood()
     {
         return percentLostFood;
     }
 
-    public int GetPercentLostSouls()
+    public float GetPercentLostSouls()
     {
         return percentLostSouls;
     }
@@ -40,10 +40,4 @@ public class Disaster_Aure : MonoBehaviour {
     {
         my_text = GetComponentInChildren<TextMeshProUGUI>();
     }
-
-    private void Update()
-    {
-        my_text.SetText(textExplanatory);
-    }
-
 }
