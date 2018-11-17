@@ -113,9 +113,9 @@ public class CityShems : MonoBehaviour {
         for (int i = 0; i < children; ++i)
         {
             gameO = transform.GetChild(i).gameObject;
-            delta_food += gameO.GetComponent<Building>().getDeltaFood();
-            delta_people += gameO.GetComponent<Building>().getDeltaHabitants();
-            delta_souls += gameO.GetComponent<Building>().getDeltaSouls();
+            delta_food += gameO.GetComponent<Building_Aure>().getDeltaFood();
+            delta_people += gameO.GetComponent<Building_Aure>().getDeltaHabitants();
+            delta_souls += gameO.GetComponent<Building_Aure>().getDeltaSouls();
 
         }
         
