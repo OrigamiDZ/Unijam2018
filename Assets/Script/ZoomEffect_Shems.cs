@@ -23,6 +23,7 @@ public class ZoomEffect_Shems : MonoBehaviour {
 		if (Input.GetKeyDown("escape"))
         {
             zoom = true;
+            gameObject.GetComponent<Fade_Shems>().BeginFade(1);
 
         }
         if (zoom == true)
