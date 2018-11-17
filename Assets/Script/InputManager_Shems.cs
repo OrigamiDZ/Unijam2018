@@ -7,7 +7,9 @@ public class InputManager_Shems : MonoBehaviour {
 
     private GameObject obj;
     [SerializeField]
-    private Camera camera;
+    private Camera cam;
+    [SerializeField]
+    private GameObject mainUI;
 
 	// Use this for initialization
 	void Start () {
@@ -23,7 +25,8 @@ public class InputManager_Shems : MonoBehaviour {
 
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit2D hit = Physics2D.Raycast(camera.transform.position, Input.mousePosition);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
 
             if (hit != null && hit.collider != null)
             {
@@ -34,6 +37,8 @@ public class InputManager_Shems : MonoBehaviour {
                 if (obj.tag == "Building")
                 {
                     Debug.Log("Click on building");
+                    mainUI.GetComponent<UIBuildingsManagerMainGame_Lea>().OnBuildingInteraction(obj);
+
                 }
                 if (obj.tag == "Door")
                 {
