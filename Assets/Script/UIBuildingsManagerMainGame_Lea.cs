@@ -19,7 +19,9 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
     [SerializeField]
     GameObject UIFreeArea;
     [SerializeField]
-    GameObject[] buildingsPrefabs;
+    GameObject housePrefabs;
+    [SerializeField]
+    GameObject farmPrefabs;
 
     public GameObject selectedTile;
 
@@ -91,27 +93,39 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
 
     public void BuildHouse()
     {
-        Vector3 offset = new Vector3(10f,18f,0f);
-        Vector2 position = selectedTile.transform.position + offset;
-        string layerName = selectedTile.GetComponent<SpriteRenderer>().sortingLayerName;
-        GameObject newBuilding = Instantiate(buildingsPrefabs[0], position, Quaternion.identity, city.transform);
-        newBuilding.GetComponent<SpriteRenderer>().sortingLayerName = layerName;
-        GameObject oldObject = selectedTile;
-        selectedTile = newBuilding;
-        Destroy(oldObject);
-        UIFreeArea.SetActive(false);
+        Debug.Log(housePrefabs.GetComponent<Building_Aure>().buildingCost <= city.GetComponent<CityShems>().Get_souls());
+        if (housePrefabs.GetComponent<Building_Aure>().buildingCost <= city.GetComponent<CityShems>().Get_souls())
+        {
+            Debug.Log("Building house");
+            city.GetComponent<CityShems>().Set_souls(city.GetComponent<CityShems>().Get_souls() - housePrefabs.GetComponent<Building_Aure>().buildingCost);
+            Vector3 offset = new Vector3(10f, 18f, 0f);
+            Vector2 position = selectedTile.transform.position + offset;
+            string layerName = selectedTile.GetComponent<SpriteRenderer>().sortingLayerName;
+            GameObject newBuilding = Instantiate(housePrefabs, position, Quaternion.identity, city.transform);
+            newBuilding.GetComponent<SpriteRenderer>().sortingLayerName = layerName;
+            GameObject oldObject = selectedTile;
+            selectedTile = newBuilding;
+            Destroy(oldObject);
+            UIFreeArea.SetActive(false);
+        }
     }
 
     public void BuildFarm()
     {
-        Vector3 offset = new Vector3(8f, 22f,0f);
-        Vector2 position = selectedTile.transform.position + offset;
-        string layerName = selectedTile.GetComponent<SpriteRenderer>().sortingLayerName;
-        GameObject newBuilding = Instantiate(buildingsPrefabs[1], position, Quaternion.identity, city.transform);
-        newBuilding.GetComponent<SpriteRenderer>().sortingLayerName = layerName;
-        GameObject oldObject = selectedTile;
-        selectedTile = newBuilding;
-        Destroy(oldObject);
-        UIFreeArea.SetActive(false);
+        Debug.Log(housePrefabs.GetComponent<Building_Aure>().buildingCost <= city.GetComponent<CityShems>().Get_souls());
+        if (farmPrefabs.GetComponent<Building_Aure>().buildingCost <= city.GetComponent<CityShems>().Get_souls())
+        {
+            Debug.Log("Building farm");
+            city.GetComponent<CityShems>().Set_souls(city.GetComponent<CityShems>().Get_souls() - farmPrefabs.GetComponent<Building_Aure>().buildingCost);
+            Vector3 offset = new Vector3(8f, 22f, 0f);
+            Vector2 position = selectedTile.transform.position + offset;
+            string layerName = selectedTile.GetComponent<SpriteRenderer>().sortingLayerName;
+            GameObject newBuilding = Instantiate(farmPrefabs, position, Quaternion.identity, city.transform);
+            newBuilding.GetComponent<SpriteRenderer>().sortingLayerName = layerName;
+            GameObject oldObject = selectedTile;
+            selectedTile = newBuilding;
+            Destroy(oldObject);
+            UIFreeArea.SetActive(false);
+        }
     }
 }

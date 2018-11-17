@@ -37,7 +37,7 @@ Transform:
   m_GameObject: {fileID: 1007813425334306}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 235.9, y: 134.70006, z: 0}
-  m_LocalScale: {x: 13.5, y: 13.500002, z: 0}
+  m_LocalScale: {x: 13.5, y: 13.500004, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -70,6 +70,8 @@ MonoBehaviour:
   deltaSouls: 0
   type: 3
   sprite: {fileID: 21300000, guid: 15168a11838bfd3449a0dd7bf7389e8d, type: 3}
+  buildingCost: 2
+  costUpgrade1: 4
 --- !u!212 &212142607816975654
 SpriteRenderer:
   m_ObjectHideFlags: 1

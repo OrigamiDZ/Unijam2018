@@ -19,6 +19,9 @@ public class Building_Aure : MonoBehaviour {
     [SerializeField]
     private Sprite sprite;
 
+    public int buildingCost;
+    public int costUpgrade1;
+
     public int getDeltaInhabitants()
     {
         return deltaInhabitants;

@@ -1909,9 +1909,10 @@ MonoBehaviour:
   BuildingSprite: {fileID: 1371286313}
   BuildingEffects: {fileID: 888968720}
   UIFreeArea: {fileID: 687512539}
-  buildingsPrefabs:
-  - {fileID: 1025177165926088, guid: 98823d4ef749fd7499463aba43b62a4b, type: 2}
-  - {fileID: 1007813425334306, guid: 93e4fbdc71ee6de42a3860a9ca96ab03, type: 2}
+  housePrefabs: {fileID: 1025177165926088, guid: 98823d4ef749fd7499463aba43b62a4b,
+    type: 2}
+  farmPrefabs: {fileID: 1007813425334306, guid: 93e4fbdc71ee6de42a3860a9ca96ab03,
+    type: 2}
   selectedTile: {fileID: 0}
 --- !u!1 &687512539
 GameObject:
@@ -3055,7 +3056,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4654148359293436, guid: 93e4fbdc71ee6de42a3860a9ca96ab03, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.38571438
+      value: 0.3857144
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93e4fbdc71ee6de42a3860a9ca96ab03, type: 2}
@@ -3175,7 +3176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   food: 0
   people: 0
-  souls: 0
+  souls: 10
   maxpopulation: 0
   delta_food: 0
   delta_people: 0
@@ -5051,28 +5052,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 170c9e420f26f1f4a9b330560d4fb64e, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &1867390961 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1500408491748734, guid: 7bfac33cee029ff48a21b6e44862af98,
-    type: 2}
-  m_PrefabInternal: {fileID: 2071617983}
 --- !u!4 &1867390962 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4904550273861918, guid: 7bfac33cee029ff48a21b6e44862af98,
     type: 2}
   m_PrefabInternal: {fileID: 2071617983}
---- !u!65 &1867390963
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1867390961}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.380792, y: 3.1540635, z: 0}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1935748702
 GameObject:
   m_ObjectHideFlags: 0
@@ -5161,7 +5145,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4618397538083026, guid: 98823d4ef749fd7499463aba43b62a4b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 7.7600007
+      value: 7.7600026
       objectReference: {fileID: 0}
     - target: {fileID: 4618397538083026, guid: 98823d4ef749fd7499463aba43b62a4b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5189,21 +5173,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4618397538083026, guid: 98823d4ef749fd7499463aba43b62a4b, type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.37386963
+      value: 0.37387067
       objectReference: {fileID: 0}
     - target: {fileID: 4618397538083026, guid: 98823d4ef749fd7499463aba43b62a4b, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.37637877
-      objectReference: {fileID: 0}
-    - target: {fileID: 212430950183822754, guid: 98823d4ef749fd7499463aba43b62a4b,
-        type: 2}
-      propertyPath: m_SortingLayerID
-      value: -1449549453
-      objectReference: {fileID: 0}
-    - target: {fileID: 212430950183822754, guid: 98823d4ef749fd7499463aba43b62a4b,
-        type: 2}
-      propertyPath: m_SortingLayer
-      value: 5
+      value: 0.3763799
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98823d4ef749fd7499463aba43b62a4b, type: 2}
@@ -5825,8 +5799,19 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 60265871771505142, guid: 7bfac33cee029ff48a21b6e44862af98, type: 2}
+    - target: {fileID: 4904550273861918, guid: 7bfac33cee029ff48a21b6e44862af98, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904550273861918, guid: 7bfac33cee029ff48a21b6e44862af98, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904550273861918, guid: 7bfac33cee029ff48a21b6e44862af98, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bfac33cee029ff48a21b6e44862af98, type: 2}
   m_IsPrefabAsset: 0
 --- !u!4 &2071858016 stripped
