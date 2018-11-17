@@ -30,13 +30,13 @@ public class GameManager_Aure: MonoBehaviour {
         if (inPause)
         {
             gameIsPaused = true;
-            cityScript.enabled = false;
+            cityScript.StopGame();
             pauseText.text = "Pause";
         }
         else
         {
             gameIsPaused = false;
-            cityScript.enabled = true;
+            cityScript.ReStartGame();
             pauseText.text = "";
         }
     }
@@ -85,11 +85,11 @@ public class GameManager_Aure: MonoBehaviour {
         {
             if (gameIsPaused)
             {
-                PutGameInPause(true);
+                PutGameInPause(false);
             }
             else
             {
-                PutGameInPause(false);
+                PutGameInPause(true);
             }
         }
     }

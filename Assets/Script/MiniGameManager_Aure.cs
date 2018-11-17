@@ -86,7 +86,6 @@ public class MiniGameManager_Aure : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 slider.value = slider.value + ourRessourceSent/enemyRessource;
-                Debug.Log(ourRessourceSent / enemyRessource);
             }
             if (slider.value >= slider.maxValue)
             {

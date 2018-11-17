@@ -46,7 +46,6 @@ public class CityShems : MonoBehaviour {
 
     private int maxpopulation;
     private int lunarCycleNumber;
-    private float time;
 
 
     //Getter
@@ -65,10 +64,7 @@ public class CityShems : MonoBehaviour {
     {
         return maxpopulation;
     }
-    public float Get_time()
-    {
-        return time;
-    }
+
     public int GetNumberOfFieldsLVL1()
     {
         return numberOfFieldsLVL1;
@@ -170,13 +166,24 @@ public class CityShems : MonoBehaviour {
         timeOfALunarCircle = setTimeOfALunarCircle;
     }
 
-    
+    public void ReStartGame()
+    {
+        StartCoroutine("UpdateOfRessources");
+        StartCoroutine("LunarCircle");
+    }
+
+    public void StopGame()
+    {
+        StopCoroutine("UpdateOfRessources");
+        StopCoroutine("LunarCircle");
+    }
 
 
     IEnumerator UpdateOfRessources()
     {
         while (true)
-        {           
+        {
+            yield return new WaitForSeconds(timeOfAnRessourceUpdate);
             // recalcul of the max population
             maxpopulation = numberOfHousesLVL1 * capacityHouseLVL1 + numberOfHousesLVL2 * capacityHouseLVL2;
 
@@ -209,7 +216,7 @@ public class CityShems : MonoBehaviour {
                     people = maxpopulation;
                 }
             }
-            yield return new WaitForSeconds(timeOfAnRessourceUpdate);
+            
         }
     }
 
@@ -217,10 +224,11 @@ public class CityShems : MonoBehaviour {
     {
         while (true)
         {
+            yield return new WaitForSeconds(timeOfALunarCircle);
+
             souls += numberOfSacrified;
             people -= numberOfSacrified;
             lunarCycleNumber++;
-            yield return new WaitForSeconds(timeOfALunarCircle);
 
         }
     }
@@ -230,12 +238,10 @@ public class CityShems : MonoBehaviour {
         lunarCycleNumber = 0;
         maxpopulation = numberOfHousesLVL1 * capacityHouseLVL1 + numberOfHousesLVL2 * capacityHouseLVL2;
 
-        StartCoroutine("UpdateOfRessources");
-        StartCoroutine("LunarCircle");
+        ReStartGame();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        time += Time.deltaTime;
 	}
 }
