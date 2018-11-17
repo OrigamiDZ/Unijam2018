@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GodsConcil_Shems : MonoBehaviour {
+public class GodsCouncil_Shems : MonoBehaviour {
 
     private int number_of_door;
-    //frustumWidth is the width of the scenary viewed by the cemar at the distance distance
+    //frustumWidth is the width of the scenary viewed by the camera at the distance distance
     private float frustumWidth;
     [SerializeField]
     private float distance;
@@ -31,7 +31,7 @@ public class GodsConcil_Shems : MonoBehaviour {
         for (int i=0; i<number_of_door; i++)
         {
             gam = (GameObject)Instantiate(door, new Vector3(-frustumWidth + ((2.0f * i + 1) * frustumWidth / (number_of_door)), 0, distance), transform.rotation);
-            //gam.GetComponent<Door_Shems>().SetDivinity((int)Random.Range(0, 5));
+            gam.GetComponent<Door_Shems>().SetDivinity((int)Random.Range(0, 5));
         }
     }
 	
