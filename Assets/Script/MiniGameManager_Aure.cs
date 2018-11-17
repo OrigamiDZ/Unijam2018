@@ -27,9 +27,7 @@ public class MiniGameManager_Aure : MonoBehaviour {
     private float endTime;
     private bool gameOn;
 
-    [SerializeField]
     private float ourRessourceSent;
-    [SerializeField]
     private float enemyRessource;
 
     // Use this for initialization
