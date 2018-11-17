@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
     GameObject UIBuildings;
     Text BuildingNameText;
+    Sprite BuildingSprite;
 
     public void OnBuildingInteraction(GameObject Building)
     {

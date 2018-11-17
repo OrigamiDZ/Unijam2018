@@ -16,6 +16,9 @@ public class Building_Aure : MonoBehaviour {
     [SerializeField]
     private EnumBuildingType_Lea.BuildingType type;
 
+    [SerializeField]
+    private Sprite sprite;
+
     public int getDeltaHabitants()
     {
         return deltaHabitants;
@@ -31,19 +34,28 @@ public class Building_Aure : MonoBehaviour {
         return deltaSouls;
     }
 
-    void setDeltaHabitants(int habitants)
+    public void setDeltaHabitants(int habitants)
     {
         deltaHabitants = habitants;
     }
 
-    void setDeltaSouls(int souls)
+    public void setDeltaSouls(int souls)
     {
         deltaSouls = souls;
     }
 
-    EnumBuildingType_Lea.BuildingType getBuildingType()
+    public EnumBuildingType_Lea.BuildingType getBuildingType()
     {
         return type;
+    }
+
+    public void setSprite(Sprite newSprite){
+        sprite = newSprite;
+    }
+
+    public Sprite getSprite()
+    {
+        return sprite;
     }
 
 }
