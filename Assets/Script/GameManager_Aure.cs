@@ -67,4 +67,6 @@ public class GameManager_Aure: MonoBehaviour {
 
     }
 
+
+
 }

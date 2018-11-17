@@ -10,17 +10,38 @@ public class CityShems : MonoBehaviour {
     private int people;
     [SerializeField]
     private int souls;
+
     [SerializeField]
     private int maxpopulation;
-    private float time;
+
     [SerializeField]
-    private int delta_food;
+    private int numberOfFieldsLVL1;
     [SerializeField]
-    private int delta_people;
+    private int productivityOfFieldsLVL1;
     [SerializeField]
-    private int delta_souls;
+    private int numberOfFieldsLVL2;
+    [SerializeField]
+    private int productivityOfFieldsLVL2;
+
+    [SerializeField]
+    private int numberOfHousesLVL1;
+    [SerializeField]
+    private int capacityHouseLVL1;
+    [SerializeField]
+    private int numberOfHousesLVL2;
+    [SerializeField]
+    private int capacityHouseLVL2;
+
+    [SerializeField]
+    private int numberOfSacrified;
+
     [SerializeField]
     private int food_consumed_by_hab;
+    [SerializeField]
+    private int fertilityRate;
+
+    private int lunarCycleNumber;
+    private float time;
 
 
     //Getter
@@ -43,17 +64,17 @@ public class CityShems : MonoBehaviour {
     {
         return time;
     }
-    public int Get_delta_food()
+    public int GetNumberOfFieldsLVL1()
     {
-        return delta_food;
+        return numberOfFieldsLVL1;
     }
-    public int Get_delta_people()
+    public int GetNumberOfHousesLVL1()
     {
-        return delta_people;
+        return numberOfHousesLVL1;
     }
-    public int Get_delta_souls()
+    public int GetNumberOfSacrified()
     {
-        return delta_souls;
+        return numberOfSacrified;
     }
 
     public int Get_food_consumed_by_hab()
@@ -78,17 +99,17 @@ public class CityShems : MonoBehaviour {
     {
         maxpopulation = setmaxpop;
     }
-    public void Set_delta_food(int setdelta_food)
+    public void SetNumberOfFieldsLVL1(int setNumberOfFields)
     {
-        delta_food = setdelta_food;
+        numberOfFieldsLVL1 = setNumberOfFields;
     }
-    public void Set_delta_people(int setdelta_people)
+    public void SetNumberOfHousesLVL1(int setNumberOfHouses)
     {
-        delta_people=setdelta_people;
+        numberOfHousesLVL1 = setNumberOfHouses;
     }
-    public void Set_delta_souls(int setdelta_souls)
+    public void SetNumberOfSacrified(int setNumberOfSacrified)
     {
-        delta_souls = setdelta_souls;
+        numberOfSacrified = setNumberOfSacrified;
     }
 
     public void Set_food_consumed_by_hab(int setfood_consumed_by_hab)
@@ -96,52 +117,44 @@ public class CityShems : MonoBehaviour {
         food_consumed_by_hab = setfood_consumed_by_hab;
     }
 
-
-
-    public void update_delta_food(int added_people_this_month)
-    {
-        delta_food -= food_consumed_by_hab * added_people_this_month;
-    }
-    public void calculate_deltas()
-    {
-        GameObject gameO;
-
-        int children = transform.childCount;
-        delta_food = 0;
-        delta_people = 0;
-        delta_souls = 0;
-        for (int i = 0; i < children; ++i)
-        {
-            gameO = transform.GetChild(i).gameObject;
-            delta_food += gameO.GetComponent<Building_Aure>().getDeltaFood();
-            delta_people += gameO.GetComponent<Building_Aure>().getDeltaInhabitants();
-            delta_souls += gameO.GetComponent<Building_Aure>().getDeltaSouls();
-
-        }
-        
-    }
-
-
     public void Lunar_Cycle_Update()
-    {
-        food += delta_food;
-        if (people + delta_people <= maxpopulation)
-        {
-            people += delta_people;
-            update_delta_food(delta_people);
-        }
-        else
-        {
-            update_delta_food(maxpopulation-people);
-            people = maxpopulation;
-        }
-        souls += delta_souls;
+    {      
+        souls += numberOfSacrified;
+        people -= numberOfSacrified;
+
     }
-   
+
+    IEnumerator UpdateOfRessources()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1);
+
+            // recalcul of the max population
+            maxpopulation = numberOfHousesLVL1 * capacityHouseLVL1 + numberOfHousesLVL2 * capacityHouseLVL2;
+
+            // update of the population
+            if (people + people*fertilityRate <= maxpopulation)
+            {
+                people = people + people * fertilityRate;
+            }
+            else
+            {
+                people = maxpopulation;
+            }
+
+            // update of the food
+            food = food + numberOfFieldsLVL1 * productivityOfFieldsLVL1 + numberOfFieldsLVL2 * productivityOfFieldsLVL2 - people * food_consumed_by_hab; 
+
+
+        }
+    }
+
 
     // Use this for initialization
     void Start () {
-
+        lunarCycleNumber = 0;
+        StartCoroutine("UpdateOfRessources");
     }
 	
 	// Update is called once per frame
