@@ -23,7 +23,8 @@ public class GameManager_Aure: MonoBehaviour {
 
     private CityShems cityScript;
 
-    private Disaster_Aure[] my_disasters;
+    private List<GameObject> my_disasters = new List<GameObject>();
+    private int numberOfDisasters;
 
     private void PutGameInPause(bool inPause)
     {
@@ -43,8 +44,17 @@ public class GameManager_Aure: MonoBehaviour {
 
     private void Start()
     {
+        numberOfDisasters = 0;
         cityScript = cityGameObject.GetComponent<CityShems>();
-        my_disasters = canvaDisaster.GetComponentsInChildren<Disaster_Aure>();
+        for (int i = 0; i < canvaDisaster.transform.childCount; i++)
+        {
+            my_disasters.Add(canvaDisaster.transform.GetChild(i).gameObject);
+            numberOfDisasters ++;
+        }
+        if (numberOfDisasters == 0)
+        {
+            Debug.Log("Not enought disasters");
+        }
         currentLunarCycleNumber = cityScript.GetLunarCycleNumber();
         pauseText.text = "";
     }
@@ -52,23 +62,25 @@ public class GameManager_Aure: MonoBehaviour {
     void CreateOrNotADisaster()
     {
         // set (or not) a random event
-        if (Random.Range(0, 9999) <= 9999 * (percentChanceOfADisaster / 100))
+        if (Random.Range(0, 9999) <= 9999 * percentChanceOfADisaster)
         {
+            Debug.Log("A disaster happened");
             setActifARandomDisaster();  // set (or not) randomly a disaster
         }
     }
 
     void setActifARandomDisaster()
     {
-        int randomDisaster = Random.Range(1, System.Enum.GetNames(typeof(EnumDisasterTypes_Aure)).Length);
-        cityScript.Set_food(cityScript.Get_food() - (int)(my_disasters[randomDisaster].GetPercentLostFood() * cityScript.Get_food()));
-        cityScript.Set_people(cityScript.Get_people() - (int)(my_disasters[randomDisaster].GetPercentLostInhabitants() * cityScript.Get_people()));
-        cityScript.Set_souls(cityScript.Get_souls() - (int)(my_disasters[randomDisaster].GetPercentLostSouls() * cityScript.Get_souls()));
-        my_disasters[randomDisaster].gameObject.SetActive(true);
-        my_disasters[randomDisaster].gameObject.GetComponentInChildren<TextMeshProUGUI>().text = 
-            "- " + (int)(my_disasters[randomDisaster].GetPercentLostFood() * cityScript.Get_food()) + 
+        int enumLenght = System.Enum.GetValues(typeof(EnumDisasterTypes_Aure.DisasterType)).Length;
+        int randomDisaster = Random.Range(0, enumLenght);
+        cityScript.Set_food(cityScript.Get_food() - (int)(my_disasters[randomDisaster].GetComponent<Disaster_Aure>().GetPercentLostFood() * cityScript.Get_food()));
+        cityScript.Set_people(cityScript.Get_people() - (int)(my_disasters[randomDisaster].GetComponent<Disaster_Aure>().GetPercentLostInhabitants() * cityScript.Get_people()));
+        cityScript.Set_souls(cityScript.Get_souls() - (int)(my_disasters[randomDisaster].GetComponent<Disaster_Aure>().GetPercentLostSouls() * cityScript.Get_souls()));
+        my_disasters[randomDisaster].SetActive(true);
+        my_disasters[randomDisaster].transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = 
+            "- " + (int)(my_disasters[randomDisaster].GetComponent<Disaster_Aure>().GetPercentLostFood() * cityScript.Get_food()) + 
             " nourritures \n " + 
-            (int)(my_disasters[randomDisaster].GetPercentLostSouls() * cityScript.Get_souls()) + 
+            (int)(my_disasters[randomDisaster].GetComponent<Disaster_Aure>().GetPercentLostSouls() * cityScript.Get_souls()) + 
             " habitants";
         PutGameInPause(true);
     }
