@@ -5,10 +5,12 @@ using UnityEngine.UI;
 
 public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
     GameObject UIBuildings;
+    Text BuildingNameText;
 
     public void OnBuildingInteraction(GameObject Building)
     {
         UIBuildings.SetActive(true);
-        UIBuildings.transform.Find("BuildingName");
+        BuildingNameText.text = Building.GetComponent<Building_Aure>().GetType().ToString();
+
     }
 }

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class EnumBuildingType_Lea : MonoBehaviour {
 
-    enum BuildingType { Temple, House, Barrack, Farm, Playground };
+    public enum BuildingType { Temple, House, Barrack, Farm, Playground };
 }
