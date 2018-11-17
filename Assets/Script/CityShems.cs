@@ -12,9 +12,6 @@ public class CityShems : MonoBehaviour {
     private int souls;
 
     [SerializeField]
-    private int maxpopulation;
-
-    [SerializeField]
     private int numberOfFieldsLVL1;
     [SerializeField]
     private int productivityOfFieldsLVL1;
@@ -38,8 +35,9 @@ public class CityShems : MonoBehaviour {
     [SerializeField]
     private int food_consumed_by_hab;
     [SerializeField]
-    private int fertilityRate;
+    private float fertilityRate;
 
+    private int maxpopulation;
     private int lunarCycleNumber;
     private float time;
 
@@ -128,15 +126,15 @@ public class CityShems : MonoBehaviour {
     {
         while (true)
         {
-            yield return new WaitForSeconds(1);
-
+           
             // recalcul of the max population
             maxpopulation = numberOfHousesLVL1 * capacityHouseLVL1 + numberOfHousesLVL2 * capacityHouseLVL2;
 
             // update of the population
             if (people + people*fertilityRate <= maxpopulation)
             {
-                people = people + people * fertilityRate;
+                int babies = (int)(people * fertilityRate) + 1;
+                people = people + babies;
             }
             else
             {
@@ -144,9 +142,9 @@ public class CityShems : MonoBehaviour {
             }
 
             // update of the food
-            food = food + numberOfFieldsLVL1 * productivityOfFieldsLVL1 + numberOfFieldsLVL2 * productivityOfFieldsLVL2 - people * food_consumed_by_hab; 
+            food = food + numberOfFieldsLVL1 * productivityOfFieldsLVL1 + numberOfFieldsLVL2 * productivityOfFieldsLVL2 - people * food_consumed_by_hab;
 
-
+            yield return new WaitForSeconds(1);
         }
     }
 
@@ -154,6 +152,8 @@ public class CityShems : MonoBehaviour {
     // Use this for initialization
     void Start () {
         lunarCycleNumber = 0;
+        maxpopulation = numberOfHousesLVL1 * capacityHouseLVL1 + numberOfHousesLVL2 * capacityHouseLVL2;
+
         StartCoroutine("UpdateOfRessources");
     }
 	
