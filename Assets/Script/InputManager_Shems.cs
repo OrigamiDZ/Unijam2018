@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class InputManager_Shems : MonoBehaviour {
+
+    private GameObject obj;
 
 	// Use this for initialization
 	void Start () {
@@ -16,12 +19,18 @@ public class InputManager_Shems : MonoBehaviour {
             Debug.Log("escape pressed");
         }
 
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit))
+        if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log(hit.transform.name);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                Debug.Log(hit.transform.name);
+                obj = hit.transform.gameObject;
+                obj.GetComponent<Renderer>().material.shader = Shader.Find("Specular");
+                obj.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
+            }
         }
     }
 }
