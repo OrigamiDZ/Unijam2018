@@ -390,7 +390,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 80864530}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 677173626}
+        m_MethodName: Upgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &80864530
@@ -1939,7 +1950,6 @@ GameObject:
   m_Component:
   - component: {fileID: 687512540}
   - component: {fileID: 687512542}
-  - component: {fileID: 687512541}
   m_Layer: 5
   m_Name: UIFreeArea
   m_TagString: Untagged
@@ -1970,39 +1980,6 @@ RectTransform:
   m_AnchoredPosition: {x: -625.99994, y: -431.69998}
   m_SizeDelta: {x: 618, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &687512541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 687512539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 70
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 7
-    m_MaxSize: 70
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: CONSTRUCTIONS
 --- !u!222 &687512542
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2821,7 +2798,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1081, y: 422}
+  m_AnchoredPosition: {x: 1081, y: 364}
   m_SizeDelta: {x: 1920, y: 1080.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &987482298 stripped
@@ -5682,7 +5659,7 @@ Prefab:
     - target: {fileID: 114422931862871842, guid: 5cb74953fc878bc48ab448a2b1fde1cd,
         type: 2}
       propertyPath: timeOfALunarCircle
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 114422931862871842, guid: 5cb74953fc878bc48ab448a2b1fde1cd,
         type: 2}
@@ -5937,7 +5914,7 @@ Prefab:
     - target: {fileID: 212504989828516248, guid: 7bfac33cee029ff48a21b6e44862af98,
         type: 2}
       propertyPath: m_SortingLayer
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114354527426272794, guid: 7bfac33cee029ff48a21b6e44862af98,
         type: 2}

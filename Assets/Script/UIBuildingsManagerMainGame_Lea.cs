@@ -115,19 +115,6 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
     }
 
 
-    public void upgradeHouse()
-    {
-        if(selectedTile.GetComponent<Building_Aure>().lvl < 2 && selectedTile.GetComponent<Building_Aure>().costUpgrade1 <= city.GetComponent<CityShems>().Get_souls())
-        {
-            Debug.Log("Upgrading house");
-            selectedTile.GetComponent<Building_Aure>().lvl++;
-            selectedTile.GetComponent<SpriteRenderer>().sprite = selectedTile.GetComponent<Building_Aure>().upgradedSprite;
-            city.GetComponent<CityShems>().SetNumberOfHousesLVL1(city.GetComponent<CityShems>().GetNumberOfHousesLVL1() - 1);
-            city.GetComponent<CityShems>().SetNumberOfHousesLVL2(city.GetComponent<CityShems>().GetNumberOfHousesLVL2() + 1);
-        }
-    }
-
-
     public void BuildFarm()
     {
         Debug.Log(housePrefabs.GetComponent<Building_Aure>().buildingCost <= city.GetComponent<CityShems>().Get_souls());
@@ -149,16 +136,33 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
         }
     }
 
-    public void upgradeFarm()
+    public void Upgrade()
     {
         if (selectedTile.GetComponent<Building_Aure>().lvl < 2 && selectedTile.GetComponent<Building_Aure>().costUpgrade1 <= city.GetComponent<CityShems>().Get_souls())
         {
-            Debug.Log("Upgrading house");
             selectedTile.GetComponent<Building_Aure>().lvl++;
             selectedTile.GetComponent<SpriteRenderer>().sprite = selectedTile.GetComponent<Building_Aure>().upgradedSprite;
-            city.GetComponent<CityShems>().SetNumberOfFieldsLVL1(city.GetComponent<CityShems>().GetNumberOfFieldsLVL1() - 1);
-            city.GetComponent<CityShems>().SetNumberOfFieldsLVL2(city.GetComponent<CityShems>().GetNumberOfFieldsLVL2() + 1);
+            selectedTile.GetComponent<Building_Aure>().setDeltaHabitants(selectedTile.GetComponent<Building_Aure>().deltaInhabitantsUp);
+            selectedTile.GetComponent<Building_Aure>().setDeltaFood(selectedTile.GetComponent<Building_Aure>().deltaFoodUp);
+            selectedTile.GetComponent<Building_Aure>().setDeltaSouls(selectedTile.GetComponent<Building_Aure>().deltaSoulsUp);
+            city.GetComponent<CityShems>().Set_souls(city.GetComponent<CityShems>().Get_souls() - selectedTile.GetComponent<Building_Aure>().costUpgrade1);
+            switch (selectedTile.GetComponent<Building_Aure>().getBuildingType()) {
+                case EnumBuildingType_Lea.BuildingType.House:
+                    Debug.Log("Upgrading house");
+                    city.GetComponent<CityShems>().SetNumberOfHousesLVL1(city.GetComponent<CityShems>().GetNumberOfHousesLVL1() - 1);
+                    city.GetComponent<CityShems>().SetNumberOfHousesLVL2(city.GetComponent<CityShems>().GetNumberOfHousesLVL2() + 1);
+                    break;
+
+                case EnumBuildingType_Lea.BuildingType.Farm:
+                    Debug.Log("Upgrading farm");
+                    city.GetComponent<CityShems>().SetNumberOfFieldsLVL1(city.GetComponent<CityShems>().GetNumberOfFieldsLVL1() - 1);
+                    city.GetComponent<CityShems>().SetNumberOfFieldsLVL2(city.GetComponent<CityShems>().GetNumberOfFieldsLVL2() + 1);
+                    break;
+            }
         }
+        BuildingNameText.text = selectedTile.GetComponent<Building_Aure>().getBuildingType().ToString();
+        BuildingSprite.sprite = selectedTile.GetComponent<Building_Aure>().getSprite();
+        BuildingEffects.text = getEffectsBuilding(selectedTile);
     }
 
 

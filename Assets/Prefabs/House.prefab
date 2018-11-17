@@ -65,14 +65,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32059721acec34a4e839e3c38fc2e154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deltaInhabitants: 2
-  deltaFood: -2
+  deltaInhabitants: 10
+  deltaInhabitantsUp: 20
+  deltaFood: -10
+  deltaFoodUp: -20
   deltaSouls: 0
+  deltaSoulsUp: 0
   type: 1
   sprite: {fileID: 21300000, guid: 4c57cb2ed9ce1954bb96af1aaa6ece54, type: 3}
   buildingCost: 2
-  costUpgrade1: 4
+  costUpgrade1: 5
   selectedSprite: {fileID: 21300000, guid: 3094129d8dd305049bd23f6f882345ef, type: 3}
+  lvl: 0
+  upgradedSprite: {fileID: 21300000, guid: 4c57cb2ed9ce1954bb96af1aaa6ece54, type: 3}
 --- !u!212 &212430950183822754
 SpriteRenderer:
   m_ObjectHideFlags: 1
