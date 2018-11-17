@@ -53,6 +53,8 @@ public class InputManagerGodCouncil_Shems : MonoBehaviour {
                     {
                         canvas.SetActive(true);
                         transform.position.Set(0, 0, 0);
+                        canvas.transform.GetChild(0).GetComponent<RectTransform>().anchorMin = new Vector2(0.5f + obj.transform.position.x / 40, 0.85f);
+                        canvas.transform.GetChild(0).GetComponent<RectTransform>().anchorMax = new Vector2(0.5f + obj.transform.position.x / 40, 0.85f);
                     }
                 }
             }
