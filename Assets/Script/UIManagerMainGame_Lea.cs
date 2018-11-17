@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class UIManagerMainGame_Lea : MonoBehaviour {
     [SerializeField]
+    Canvas BuildingsCanvas;
+    [SerializeField]
     private Text PopulationNumberUI;
     [SerializeField]
     private Text FoodNumberUI;
@@ -26,4 +28,5 @@ public class UIManagerMainGame_Lea : MonoBehaviour {
         //SoulsNumberUI.text = City.GetComponent<City>().gloabalSouls;
         //MoralNumberUI.text = City.GetComponent<City>().globalMoral;
     }
+
 }
