@@ -12,7 +12,6 @@ public class CityShems : MonoBehaviour {
     private int souls;
     [SerializeField]
     private int maxpopulation;
-    [SerializeField]
     private float time;
     [SerializeField]
     private int delta_food;
@@ -32,7 +31,7 @@ public class CityShems : MonoBehaviour {
     }
     public int Get_souls()
     {
-        return souls
+        return souls;
     }
     public int Get_maxpopulation()
     {
@@ -44,44 +43,44 @@ public class CityShems : MonoBehaviour {
     }
     public int Get_delta_food()
     {
-        return maxpopulation;
+        return delta_food;
     }
     public int Get_delta_people()
     {
-        return maxpopulation;
+        return delta_people;
     }
     public int Get_delta_souls()
     {
-        return maxpopulation;
+        return delta_souls;
     }
 
-    public int Set_food()
+    public void Set_food(int setfood)
     {
-        return maxpopulation;
+        food = setfood;
     }
-    public int Set_people()
+    public void Set_people(int setpeople)
     {
-        return maxpopulation;
+        people = setpeople;
     }
-    public int Set_souls()
+    public void Set_souls(int setsouls)
     {
-        return maxpopulation;
+        souls = setsouls;
     }
-    public int Set_maxpopulation()
+    public void Set_maxpopulation(int setmaxpop)
     {
-        return maxpopulation;
+        maxpopulation = setmaxpop;
     }
-    public int Set_delta_food()
+    public void Set_delta_food(int setdelta_food)
     {
-        return maxpopulation;
+        delta_food = setdelta_food;
     }
-    public int Set_delta_people()
+    public void Set_delta_people(int setdelta_people)
     {
-        return maxpopulation;
+        delta_people=setdelta_people;
     }
-    public int Set_delta_souls()
+    public void Set_delta_souls(int setdelta_souls)
     {
-        return maxpopulation;
+        delta_souls = setdelta_souls;
     }
 
 
@@ -89,12 +88,18 @@ public class CityShems : MonoBehaviour {
     {
     }
 
+    public void update_deltas()
+    {
+
+    }
+
     // Use this for initialization
     void Start () {
-}
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		
+        time += Time.deltaTime;
 	}
 }
