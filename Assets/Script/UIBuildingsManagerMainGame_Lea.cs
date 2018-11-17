@@ -105,6 +105,7 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
             string layerName = selectedTile.GetComponent<SpriteRenderer>().sortingLayerName;
             GameObject newBuilding = Instantiate(housePrefabs, position, Quaternion.identity, city.transform);
             newBuilding.GetComponent<SpriteRenderer>().sortingLayerName = layerName;
+            newBuilding.GetComponent<Building_Aure>().lvl = 1;
             city.GetComponent<CityShems>().SetNumberOfHousesLVL1(city.GetComponent<CityShems>().GetNumberOfHousesLVL1() + 1);
             GameObject oldObject = selectedTile;
             selectedTile = newBuilding;
@@ -112,6 +113,9 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
             UIFreeArea.SetActive(false);
         }
     }
+
+
+    public void 
 
     public void BuildFarm()
     {
@@ -125,6 +129,7 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
             string layerName = selectedTile.GetComponent<SpriteRenderer>().sortingLayerName;
             GameObject newBuilding = Instantiate(farmPrefabs, position, Quaternion.identity, city.transform);
             newBuilding.GetComponent<SpriteRenderer>().sortingLayerName = layerName;
+            newBuilding.GetComponent<Building_Aure>().lvl = 1;
             city.GetComponent<CityShems>().SetNumberOfFieldsLVL1(city.GetComponent<CityShems>().GetNumberOfFieldsLVL1() + 1);
             GameObject oldObject = selectedTile;
             selectedTile = newBuilding;
