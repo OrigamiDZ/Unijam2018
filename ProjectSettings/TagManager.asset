@@ -49,11 +49,35 @@ TagManager:
   - name: CityGrid
     uniqueID: 409911953
     locked: 0
-  - name: CityWalls
+  - name: CityWallsBack
     uniqueID: 3071095141
     locked: 0
-  - name: Buildings
+  - name: BuildingsLine1
     uniqueID: 1224621449
+    locked: 0
+  - name: BuldingsLine2
+    uniqueID: 2845417843
+    locked: 0
+  - name: BuildingsLine3
+    uniqueID: 1054546515
+    locked: 0
+  - name: BuildingsLine4
+    uniqueID: 3292809347
+    locked: 0
+  - name: BuildingsLine5
+    uniqueID: 2137010189
+    locked: 0
+  - name: BuildingsLine6
+    uniqueID: 1245480491
+    locked: 0
+  - name: BuildingsLine7
+    uniqueID: 377341183
+    locked: 0
+  - name: BuildingsLine8
+    uniqueID: 65330017
+    locked: 0
+  - name: CityWallFront
+    uniqueID: 2297107257
     locked: 0
   - name: Characters
     uniqueID: 1700035699
