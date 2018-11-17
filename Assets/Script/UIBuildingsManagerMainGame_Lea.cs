@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
     [SerializeField]
+    GameObject city;
+
+    [SerializeField]
     GameObject UIBuildings;
     [SerializeField]
     Text BuildingNameText;
@@ -15,6 +18,10 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
 
     [SerializeField]
     GameObject UIFreeArea;
+    [SerializeField]
+    GameObject[] buildingsPrefabs;
+
+    public GameObject selectedTile;
 
     private void Start()
     {
@@ -79,5 +86,32 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
     {
         UIBuildings.SetActive(false);
         UIFreeArea.SetActive(true);
+    }
+
+
+    public void BuildHouse()
+    {
+        Vector3 offset = new Vector3(10f,18f,0f);
+        Vector2 position = selectedTile.transform.position + offset;
+        string layerName = selectedTile.GetComponent<SpriteRenderer>().sortingLayerName;
+        GameObject newBuilding = Instantiate(buildingsPrefabs[0], position, Quaternion.identity, city.transform);
+        newBuilding.GetComponent<SpriteRenderer>().sortingLayerName = layerName;
+        GameObject oldObject = selectedTile;
+        selectedTile = newBuilding;
+        Destroy(oldObject);
+        UIFreeArea.SetActive(false);
+    }
+
+    public void BuildFarm()
+    {
+        Vector3 offset = new Vector3(8f, 22f,0f);
+        Vector2 position = selectedTile.transform.position + offset;
+        string layerName = selectedTile.GetComponent<SpriteRenderer>().sortingLayerName;
+        GameObject newBuilding = Instantiate(buildingsPrefabs[1], position, Quaternion.identity, city.transform);
+        newBuilding.GetComponent<SpriteRenderer>().sortingLayerName = layerName;
+        GameObject oldObject = selectedTile;
+        selectedTile = newBuilding;
+        Destroy(oldObject);
+        UIFreeArea.SetActive(false);
     }
 }

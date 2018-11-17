@@ -19,6 +19,7 @@ public class UIManagerMainGame_Lea : MonoBehaviour {
     [SerializeField]
     private GameObject City;
 	
+
 	// Update is called once per frame
 	void Update () {
         //Set the different text for the different resources
