@@ -24,11 +24,13 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
     GameObject farmPrefabs;
 
     public GameObject selectedTile;
+    private GameObject previousTile;
 
     private void Start()
     {
         UIBuildings.SetActive(false);
         UIFreeArea.SetActive(false);
+        previousTile = selectedTile;
     }
 
 
@@ -126,6 +128,34 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
             selectedTile = newBuilding;
             Destroy(oldObject);
             UIFreeArea.SetActive(false);
+        }
+    }
+
+
+    private void Update()
+    {
+        if (selectedTile)
+        {
+            if(previousTile != selectedTile)
+            {
+                if (previousTile)
+                {
+                    if (previousTile.tag == "FreeArea" || previousTile.name == "Temple")
+                    {
+                        previousTile.GetComponent<SpriteRenderer>().sprite = null;
+                    }
+                    else
+                    {
+                        previousTile.GetComponent<SpriteRenderer>().sprite = previousTile.GetComponent<Building_Aure>().getSprite();
+                    }
+                    previousTile = selectedTile;
+                }
+                else
+                {
+                    previousTile = selectedTile;
+                }
+            }
+            selectedTile.GetComponent<SpriteRenderer>().sprite = selectedTile.GetComponent<Building_Aure>().selectedSprite;
         }
     }
 }

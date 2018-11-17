@@ -35,13 +35,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1240795553158954}
-  m_LocalRotation: {x: -0, y: -0, z: 0.22383001, w: 0.9746282}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.150001, y: 5.480003, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 25.868002}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &65934093234084204
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -70,6 +70,9 @@ MonoBehaviour:
   deltaSouls: 0
   type: 5
   sprite: {fileID: 21300000, guid: bcc0269c02c92d443be6999d6fc889a9, type: 3}
+  buildingCost: 0
+  costUpgrade1: 0
+  selectedSprite: {fileID: 21300000, guid: a126c25980e7a8c40954ebfbb2fc91bf, type: 3}
 --- !u!212 &212179047706686670
 SpriteRenderer:
   m_ObjectHideFlags: 1

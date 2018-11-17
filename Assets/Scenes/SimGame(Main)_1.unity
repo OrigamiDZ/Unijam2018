@@ -456,11 +456,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4802052101880980, guid: 170c9e420f26f1f4a9b330560d4fb64e, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0.22383001
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4802052101880980, guid: 170c9e420f26f1f4a9b330560d4fb64e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.9746282
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4802052101880980, guid: 170c9e420f26f1f4a9b330560d4fb64e, type: 2}
       propertyPath: m_RootOrder
@@ -475,6 +475,22 @@ Prefab:
         type: 2}
       propertyPath: m_SortingLayer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4802052101880980, guid: 170c9e420f26f1f4a9b330560d4fb64e, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4802052101880980, guid: 170c9e420f26f1f4a9b330560d4fb64e, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4802052101880980, guid: 170c9e420f26f1f4a9b330560d4fb64e, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4802052101880980, guid: 170c9e420f26f1f4a9b330560d4fb64e, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 170c9e420f26f1f4a9b330560d4fb64e, type: 2}
@@ -3020,7 +3036,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4654148359293436, guid: 93e4fbdc71ee6de42a3860a9ca96ab03, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 5.8975
+      value: 5.8975005
       objectReference: {fileID: 0}
     - target: {fileID: 4654148359293436, guid: 93e4fbdc71ee6de42a3860a9ca96ab03, type: 2}
       propertyPath: m_LocalPosition.y
@@ -3052,11 +3068,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4654148359293436, guid: 93e4fbdc71ee6de42a3860a9ca96ab03, type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.3375
+      value: 0.33749992
       objectReference: {fileID: 0}
     - target: {fileID: 4654148359293436, guid: 93e4fbdc71ee6de42a3860a9ca96ab03, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.3857144
+      value: 0.38571444
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93e4fbdc71ee6de42a3860a9ca96ab03, type: 2}
@@ -3174,14 +3190,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a523698d802fcf1478c7c2c3af33ae23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  food: 0
-  people: 0
+  food: 50
+  people: 5
   souls: 10
-  maxpopulation: 0
-  delta_food: 0
-  delta_people: 0
-  delta_souls: 0
-  food_consumed_by_hab: 0
+  numberOfFieldsLVL1: 1
+  productivityOfFieldsLVL1: 15
+  numberOfFieldsLVL2: 0
+  productivityOfFieldsLVL2: 30
+  numberOfHousesLVL1: 1
+  capacityHouseLVL1: 20
+  numberOfHousesLVL2: 0
+  capacityHouseLVL2: 20
+  numberOfSacrified: 0
+  food_consumed_by_hab: 1
+  fertilityRate: 0
 --- !u!4 &1164949969
 Transform:
   m_ObjectHideFlags: 0
@@ -5810,6 +5832,16 @@ Prefab:
     - target: {fileID: 4904550273861918, guid: 7bfac33cee029ff48a21b6e44862af98, type: 2}
       propertyPath: m_LocalScale.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212504989828516248, guid: 7bfac33cee029ff48a21b6e44862af98,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: 1357283267
+      objectReference: {fileID: 0}
+    - target: {fileID: 212504989828516248, guid: 7bfac33cee029ff48a21b6e44862af98,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bfac33cee029ff48a21b6e44862af98, type: 2}

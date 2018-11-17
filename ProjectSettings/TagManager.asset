@@ -8,6 +8,7 @@ TagManager:
   - Door
   - Ouibtn
   - Nonbtn
+  - FreeArea
   layers:
   - Default
   - TransparentFX
@@ -59,6 +60,9 @@ TagManager:
     locked: 0
   - name: BuldingsLine2
     uniqueID: 2845417843
+    locked: 0
+  - name: Temple
+    uniqueID: 1357283267
     locked: 0
   - name: BuildingsLine3
     uniqueID: 1054546515

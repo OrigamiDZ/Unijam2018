@@ -21,6 +21,7 @@ public class Building_Aure : MonoBehaviour {
 
     public int buildingCost;
     public int costUpgrade1;
+    public Sprite selectedSprite;
 
     public int getDeltaInhabitants()
     {

@@ -70,6 +70,9 @@ MonoBehaviour:
   deltaSouls: 10
   type: 0
   sprite: {fileID: 21300000, guid: afb37dd73b4747d4a8b8a21e142a27e6, type: 3}
+  buildingCost: 0
+  costUpgrade1: 0
+  selectedSprite: {fileID: 21300000, guid: 86dce760c29252a44a328fddbe9c65ff, type: 3}
 --- !u!212 &212504989828516248
 SpriteRenderer:
   m_ObjectHideFlags: 1
