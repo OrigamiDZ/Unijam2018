@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 33916849636667076}
   - component: {fileID: 114620775734626328}
   - component: {fileID: 23375178800524586}
-  - component: {fileID: 114668291851998764}
   - component: {fileID: 135278573252309536}
   m_Layer: 0
   m_Name: ThisIsAdoor
@@ -87,17 +86,6 @@ MeshFilter:
   m_GameObject: {fileID: 1580015587743136}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &114620775734626328
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1580015587743136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6f492cd2db5cda41a612fd43124b473, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114668291851998764
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}

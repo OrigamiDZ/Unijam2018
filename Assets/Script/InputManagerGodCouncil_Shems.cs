@@ -19,14 +19,16 @@ public class InputManagerGodCouncil_Shems : MonoBehaviour {
         canvas.SetActive(false);
     } 
 
-    public void YesPressed()
+    public void YesPressed(GameObject gam)
     {
-
+        gameObject.GetComponent<ZoomEffect_Shems>().setObj(gam);
+        gameObject.GetComponent<ZoomEffect_Shems>().setZoom(true);
+        gameObject.GetComponent<Fade_Shems>().BeginFade(1);
     }
 	void Start () {
         canvas.SetActive(false);
         noButton.onClick.AddListener(HideText);
-        yesButton.onClick.AddListener(YesPressed);
+        yesButton.onClick.AddListener(() => YesPressed(obj));
     }
     // Update is called once per frame
     void Update()
@@ -35,7 +37,7 @@ public class InputManagerGodCouncil_Shems : MonoBehaviour {
         {
             Debug.Log("escape pressed");
         }
-
+        //Debug.Log(canvas.transform.position.x);
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
@@ -43,10 +45,15 @@ public class InputManagerGodCouncil_Shems : MonoBehaviour {
             if (Physics.Raycast(ray, out hit))
             {
                 //Debug.Log(hit.transform.name);
-                obj = hit.transform.gameObject;
-                if (obj.tag == "Door")
+                //Debug.Log(hit.transform.position.x);
+                if (canvas.activeSelf == false)
                 {
-                    canvas.SetActive(true);
+                    obj = hit.transform.gameObject;
+                    if (obj.tag == "Door")
+                    {
+                        canvas.SetActive(true);
+                        transform.position.Set(0, 0, 0);
+                    }
                 }
             }
 

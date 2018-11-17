@@ -23,12 +23,13 @@ public class GodsCouncil_Shems : MonoBehaviour {
     // Use this for initialization
     void Start () {
         number_of_door = Random.Range(3, 6);
-
         frustumWidth = 2.0f * distance * Mathf.Tan(cam.GetComponent<Camera>().fieldOfView * 0.5f * Mathf.Deg2Rad) * cam.GetComponent<Camera>().aspect;
 
         for (int i=0; i<number_of_door; i++)
         {
+
             gam = (GameObject)Instantiate(door, new Vector3(-frustumWidth + ((2.0f * i + 1) * frustumWidth / (number_of_door)), 0, distance), transform.rotation);
+            gam.transform.localScale -= new Vector3(0.2f, 0.2f, 0) * (number_of_door - 3);
             gam.GetComponent<Door_Shems>().SetDivinity((int)Random.Range(0, 5));
         }
     }
