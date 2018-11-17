@@ -135,6 +135,16 @@ public class CityShems : MonoBehaviour {
         food_consumed_by_hab = setfood_consumed_by_hab;
     }
 
+    public int GetLunarCycleNumber()
+    {
+        return lunarCycleNumber;
+    }
+
+    public void SetLunarCycleNumber(int setLunarCycleNumber)
+    {
+        lunarCycleNumber = setLunarCycleNumber;
+    }
+
     public void Lunar_Cycle_Update()
     {      
         souls += numberOfSacrified;
