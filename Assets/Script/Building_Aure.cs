@@ -28,14 +28,13 @@ public class Building_Aure : MonoBehaviour {
     public int lvl;
     public Sprite upgradedSprite;
     public Sprite upgradedSelectSprite;
-
-    public bool isUpgradedLVL = false;
     private bool isUpgradedSprite = false;
 
     void Update()
     {
-        if (isUpgradedLVL && !isUpgradedSprite)
+        if (lvl==2 && !isUpgradedSprite)
         {
+            Debug.Log("Building upgraded");
             isUpgradedSprite = true;
             GetComponent<SpriteRenderer>().sprite = upgradedSprite;
         }
@@ -81,7 +80,14 @@ public class Building_Aure : MonoBehaviour {
 
     public Sprite getSprite()
     {
-        return sprite;
+        if (lvl == 2)
+        {
+            return upgradedSprite;
+        }
+        else
+        {
+            return sprite;
+        }
     }
 
 }

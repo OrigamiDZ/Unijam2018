@@ -175,10 +175,6 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
         {
             constructSFX.Play();
             selectedTile.GetComponent<Building_Aure>().lvl++;
-            if (selectedTile.GetComponent<Building_Aure>().getBuildingType() != EnumBuildingType_Lea.BuildingType.Temple)
-            {
-                selectedTile.GetComponent<SpriteRenderer>().sprite = selectedTile.GetComponent<Building_Aure>().upgradedSprite;
-            }
             selectedTile.GetComponent<Building_Aure>().setDeltaHabitants(selectedTile.GetComponent<Building_Aure>().deltaInhabitantsUp);
             selectedTile.GetComponent<Building_Aure>().setDeltaFood(selectedTile.GetComponent<Building_Aure>().deltaFoodUp);
             selectedTile.GetComponent<Building_Aure>().setDeltaSouls(selectedTile.GetComponent<Building_Aure>().deltaSoulsUp);
@@ -207,6 +203,7 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
         BuildingNameText.text = selectedTile.GetComponent<Building_Aure>().getBuildingType().ToString();
         BuildingSprite.sprite = selectedTile.GetComponent<Building_Aure>().getSprite();
         BuildingEffects.text = getEffectsBuilding(selectedTile);
+        selectedTile.GetComponent<SpriteRenderer>().sprite = selectedTile.GetComponent<Building_Aure>().selectedSprite;
     }
 
 
