@@ -63,16 +63,16 @@ public class InputManagerGodCouncil_Shems : MonoBehaviour {
                     }
                 }
             }
-            if (beginTimer)
+
+
+        }
+        if (beginTimer)
+        {
+            timer -= Time.deltaTime;
+            if (timer < 0)
             {
-                timer -= Time.deltaTime;
-                if (timer < 0)
-                {
-                    SceneManager.LoadScene("Heaven's Room_Shems");
-                }
+                SceneManager.LoadScene(3);
             }
-
-
         }
     }
 }
