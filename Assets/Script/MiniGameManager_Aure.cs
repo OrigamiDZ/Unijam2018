@@ -25,8 +25,12 @@ public class MiniGameManager_Aure : MonoBehaviour {
     private TextMeshProUGUI textTime;
 
     private float endTime;
-    private float finalScore;
     private bool gameOn;
+
+    [SerializeField]
+    private float ourRessourceSent;
+    [SerializeField]
+    private float enemyRessource;
 
     // Use this for initialization
     void Start () {
@@ -37,6 +41,26 @@ public class MiniGameManager_Aure : MonoBehaviour {
         }
 
         textTime.text = "Time : " + gameDuration;
+
+        if (PlayerPrefs.HasKey("ourRessourceSent"))
+        {
+            ourRessourceSent = PlayerPrefs.GetFloat("ourRessourceSent");
+        }
+        else
+        {
+            ourRessourceSent = 300;
+            Debug.Log("ourRessourceSent is not defined, default values used");
+        }
+
+        if (PlayerPrefs.HasKey("enemyRessource"))
+        {
+            enemyRessource = PlayerPrefs.GetFloat("enemyRessource");
+        }
+        else
+        {
+            enemyRessource = 300;
+            Debug.Log("enemyRessource is not defined, default values used");
+        }
     }
 	
 	// Update is called once per frame
@@ -63,33 +87,29 @@ public class MiniGameManager_Aure : MonoBehaviour {
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                slider.value++;
+                slider.value = slider.value + ourRessourceSent/enemyRessource;
+                Debug.Log(ourRessourceSent / enemyRessource);
             }
             if (slider.value >= slider.maxValue)
             {
                 StopCoroutine("SliderDecrease");
+                PlayerPrefs.SetFloat("finalScore", slider.maxValue);
                 gameOn = false;
-                finalScore = slider.maxValue;
-                Debug.Log("You win");
             }
             if (slider.value <= slider.minValue)
             {
                 StopCoroutine("SliderDecrease");
+                PlayerPrefs.SetFloat("finalScore", slider.minValue);
                 gameOn = false;
-                finalScore = 0;
-                Debug.Log("You lose");
             }
             if (endTime < Time.time)
             {
                 StopCoroutine("SliderDecrease");
                 textTime.text = "Time : 0";
-                finalScore = slider.value;
+                PlayerPrefs.SetFloat("finalScore", slider.value);
                 gameOn = false;
-                Debug.Log("You lose : " + finalScore);
             }
         }
-
-
     }
 
     public void StartMiniGame()
@@ -112,8 +132,7 @@ public class MiniGameManager_Aure : MonoBehaviour {
         while (true)
         {
             yield return new WaitForSeconds(0.01f);
-            slider.value -= 0.1f;
-            Debug.Log(slider.value);
+            slider.value = slider.value -enemyRessource/ourRessourceSent/10;
         }
     }
 }
