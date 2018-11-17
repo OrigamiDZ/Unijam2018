@@ -45,7 +45,7 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
             }
             else
             {
-                buildingEffects += "- " + Building.GetComponent<Building_Aure>().getDeltaInhabitants().ToString() + " ";
+                buildingEffects += " " + Building.GetComponent<Building_Aure>().getDeltaInhabitants().ToString() + " ";
             }
         }
         if (Building.GetComponent<Building_Aure>().getDeltaSouls() != 0)
@@ -57,7 +57,7 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
             }
             else
             {
-                buildingEffects += "- " + Building.GetComponent<Building_Aure>().getDeltaSouls().ToString() + " ";
+                buildingEffects += " " + Building.GetComponent<Building_Aure>().getDeltaSouls().ToString() + " ";
             }
         }
         return buildingEffects;
