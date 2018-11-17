@@ -11,29 +11,29 @@ public class Disaster_Aure : MonoBehaviour {
     private string textExplanatory;
 
     [SerializeField]
-    private int lostInhabitants;
+    private int percentLostInhabitants;
 
     [SerializeField]
-    private int lostFood;
+    private int percentLostFood;
 
     [SerializeField]
-    private int lostSouls;
+    private int percentLostSouls;
 
     private TextMeshProUGUI my_text;
 
-    public int GetLostInhabitants()
+    public int GetPercentLostInhabitants()
     {
-        return lostInhabitants;
+        return percentLostInhabitants;
     }
 
-    public int GetLostFood()
+    public int GetPercentLostFood()
     {
-        return lostFood;
+        return percentLostFood;
     }
 
-    public int GetLostSouls()
+    public int GetPercentLostSouls()
     {
-        return lostSouls;
+        return percentLostSouls;
     }
 
     private void Start()

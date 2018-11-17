@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class EnumDisasterTypes_Aure : MonoBehaviour {
 
-    public enum DisasterType { Disaster1, Disaster2, Disaster3 }
+    public enum DisasterType { Famine, PesteGangréneuse, Disaster3 }
 
 }
