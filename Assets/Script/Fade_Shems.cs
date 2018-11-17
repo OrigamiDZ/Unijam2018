@@ -7,14 +7,22 @@ public class Fade_Shems : MonoBehaviour {
     [SerializeField]
     private Texture2D fadeOutTexture;
     [SerializeField]
-    private float fadeSpeed = 0.8f;
+    private float fadeSpeed = 0.2f;
 
     private int drawDepth = -1000;
     private float alpha = 1.0f;
     private int fadeDir = -1;
 
+    void Start ()
+    {
+        fadeOutTexture = new Texture2D(1, 1);
+        fadeOutTexture.SetPixel(0, 0, Color.black);
+        fadeOutTexture.Apply();
+    }
+
 	void  OnGUI ()
     {
+        
         alpha += fadeDir * fadeSpeed * Time.deltaTime;
         // clampf the value of alpha between 0 and 1 since GUI.color use value between this interval
         alpha = Mathf.Clamp01(alpha);
@@ -31,10 +39,5 @@ public class Fade_Shems : MonoBehaviour {
     {
         fadeDir = direction;
         return (fadeSpeed);
-    }
-
-    void OnLevelWasLoaded ()
-    {
-        BeginFade(-1);
     }
 }

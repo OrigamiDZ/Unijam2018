@@ -29,7 +29,7 @@ public class ZoomEffect_Shems : MonoBehaviour {
         if (zoom == true)
         {
             
-            if (cam.transform.position.z > center.z)
+            if (cam.transform.position.z < center.z)
             {
                 //rotate of the cam at the speedRotate speed on the Z axis with a transition toward an object
                 cam.transform.Rotate(Vector3.forward, Time.deltaTime * speedRotate);
