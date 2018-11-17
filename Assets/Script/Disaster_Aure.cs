@@ -5,18 +5,36 @@ using TMPro;
 public class Disaster_Aure : MonoBehaviour {
 
     [SerializeField]
+    private EnumDisasterTypes_Aure.DisasterType disasterType;
+
+    [SerializeField]
     private string textExplanatory;
 
     [SerializeField]
-    private int deltaHabitants;
+    private int lostInhabitants;
 
     [SerializeField]
-    private int deltaFood;
+    private int lostFood;
 
     [SerializeField]
-    private int deltaSouls;
+    private int lostSouls;
 
     private TextMeshProUGUI my_text;
+
+    public int GetLostInhabitants()
+    {
+        return lostInhabitants;
+    }
+
+    public int GetLostFood()
+    {
+        return lostFood;
+    }
+
+    public int GetLostSouls()
+    {
+        return lostSouls;
+    }
 
     private void Start()
     {
