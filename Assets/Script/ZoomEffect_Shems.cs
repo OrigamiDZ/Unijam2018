@@ -21,7 +21,8 @@ public class ZoomEffect_Shems : MonoBehaviour {
     public void setObj (GameObject gam)
     {
         obj = gam;
-            center = obj.transform.position;
+        center = obj.transform.position;
+        Debug.Log(center.x);
     }
     public void setZoom(bool set)
     {

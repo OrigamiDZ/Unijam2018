@@ -45,10 +45,15 @@ public class InputManagerGodCouncil_Shems : MonoBehaviour {
             if (Physics.Raycast(ray, out hit))
             {
                 //Debug.Log(hit.transform.name);
-                obj = hit.transform.gameObject;
-                if (obj.tag == "Door")
+                //Debug.Log(hit.transform.position.x);
+                if (canvas.activeSelf == false)
                 {
-                    canvas.SetActive(true);
+                    obj = hit.transform.gameObject;
+                    if (obj.tag == "Door")
+                    {
+                        canvas.SetActive(true);
+                        canvas.transform.position = obj.transform.position;
+                    }
                 }
             }
 
