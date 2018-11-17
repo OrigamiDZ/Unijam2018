@@ -61,7 +61,7 @@ public class CityShems : MonoBehaviour {
         return food_consumed_by_hab;
     }
 
-
+    //Setter
     public void Set_food(int setfood)
     {
         food = setfood;
@@ -97,13 +97,28 @@ public class CityShems : MonoBehaviour {
     }
 
 
+
     public void update_delta_food()
     {
         delta_food = food_consumed_by_hab * people;
     }
-    public void update_deltas()
+    public void calculate_deltas()
     {
+        GameObject gameO;
 
+        int children = transform.childCount;
+        delta_food = 0;
+        delta_people = 0;
+        delta_souls = 0;
+        for (int i = 0; i < children; ++i)
+        {
+            gameO = transform.GetChild(i).gameObject;
+            delta_food += gameO.GetComponent<Building>().getDeltaFood();
+            delta_people += gameO.GetComponent<Building>().getDeltaHabitants();
+            delta_souls += gameO.GetComponent<Building>().getDeltaSouls();
+
+        }
+        
     }
 
 
