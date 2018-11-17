@@ -51,6 +51,15 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
         BuildingNameText.text = Building.GetComponent<Building_Aure>().getBuildingType().ToString();
         BuildingSprite.sprite = Building.GetComponent<Building_Aure>().getSprite();
         BuildingEffects.text = getEffectsBuilding(Building);
+        BuildingLVL.text = "LVL: " + Building.GetComponent<Building_Aure>().lvl.ToString();
+        if(Building.GetComponent<Building_Aure>().lvl == 2)
+        {
+            BuildingUpgradeCost.text = "MAX UPGRADE";
+        }
+        else
+        {
+            BuildingUpgradeCost.text = "Souls needed: " + Building.GetComponent<Building_Aure>().costUpgrade1.ToString();
+        }
     }
 
     private string getEffectsBuilding(GameObject Building)
@@ -130,7 +139,6 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
         if (housePrefabs.GetComponent<Building_Aure>().buildingCost <= city.GetComponent<CityShems>().Get_souls())
         {
             constructSFX.Play();
-            Debug.Log("Building house");
             city.GetComponent<CityShems>().Set_souls(city.GetComponent<CityShems>().Get_souls() - housePrefabs.GetComponent<Building_Aure>().buildingCost);
             Vector3 offset = new Vector3(10f, 18f, 0f);
             Vector2 position = selectedTile.transform.position + offset;
@@ -153,7 +161,6 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
         if (farmPrefabs.GetComponent<Building_Aure>().buildingCost <= city.GetComponent<CityShems>().Get_souls())
         {
             constructSFX.Play();
-            Debug.Log("Building farm");
             city.GetComponent<CityShems>().Set_souls(city.GetComponent<CityShems>().Get_souls() - farmPrefabs.GetComponent<Building_Aure>().buildingCost);
             Vector3 offset = new Vector3(8f, 22f, 0f);
             Vector2 position = selectedTile.transform.position + offset;
@@ -182,7 +189,6 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
             city.GetComponent<CityShems>().Set_souls(city.GetComponent<CityShems>().Get_souls() - selectedTile.GetComponent<Building_Aure>().costUpgrade1);
             switch (selectedTile.GetComponent<Building_Aure>().getBuildingType()) {
                 case EnumBuildingType_Lea.BuildingType.House:
-                    Debug.Log("Upgrading house");
                     city.GetComponent<CityShems>().SetNumberOfHousesLVL1(city.GetComponent<CityShems>().GetNumberOfHousesLVL1() - 1);
                     city.GetComponent<CityShems>().SetNumberOfHousesLVL2(city.GetComponent<CityShems>().GetNumberOfHousesLVL2() + 1);
                     break;
