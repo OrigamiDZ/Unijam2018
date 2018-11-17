@@ -5,7 +5,7 @@ using UnityEngine;
 public class Building_Aure : MonoBehaviour {
 
     [SerializeField]
-    private int deltaHabitants;
+    private int deltaInhabitants;
 
     [SerializeField]
     private int deltaFood;
@@ -19,9 +19,9 @@ public class Building_Aure : MonoBehaviour {
     [SerializeField]
     private Sprite sprite;
 
-    public int getDeltaHabitants()
+    public int getDeltaInhabitants()
     {
-        return deltaHabitants;
+        return deltaInhabitants;
     }
 
     public int getDeltaFood()
@@ -34,9 +34,9 @@ public class Building_Aure : MonoBehaviour {
         return deltaSouls;
     }
 
-    public void setDeltaHabitants(int habitants)
+    public void setDeltaHabitants(int inhabitants)
     {
-        deltaHabitants = habitants;
+        deltaInhabitants = inhabitants;
     }
 
     public void setDeltaSouls(int souls)
