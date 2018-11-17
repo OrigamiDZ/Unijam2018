@@ -51,7 +51,7 @@ public class GameManager_Aure: MonoBehaviour {
         // set (or not) a random event
         if (Random.Range(0, 9999) <= 9999 * (percentChanceOfADisaster / 100))
         {
-            setActiftARandomDisaster();  // set randomly (or not) actif a disaster
+            setActiftARandomDisaster();  // set (or not) randomly a disaster
         }
     }
 
@@ -59,16 +59,14 @@ public class GameManager_Aure: MonoBehaviour {
     {
         int randomDisaster = Random.Range(1, System.Enum.GetNames(typeof(EnumDisasterTypes_Aure)).Length);
         my_disasters[randomDisaster].gameObject.SetActive(true);
-        cityScript.Set_food(cityScript.Get_food() - my_disasters[randomDisaster].GetLostFood());
-        cityScript.Set_people(cityScript.Get_people() - my_disasters[randomDisaster].GetLostInhabitants());
-        cityScript.Set_souls(cityScript.Get_souls() - my_disasters[randomDisaster].GetLostSouls());
+        cityScript.Set_food(cityScript.Get_food() - (my_disasters[randomDisaster].GetPercentLostFood() * cityScript.Get_food()));
+        cityScript.Set_people(cityScript.Get_people() - (my_disasters[randomDisaster].GetPercentLostInhabitants() * cityScript.Get_people()));
+        cityScript.Set_souls(cityScript.Get_souls() - (my_disasters[randomDisaster].GetPercentLostSouls() * cityScript.Get_souls()));
     }
 
     private void Update()
     {
         LunarCircle(); // check if it's time for lunar change
-
-
 
     }
 
