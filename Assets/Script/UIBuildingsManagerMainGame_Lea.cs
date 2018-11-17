@@ -13,8 +13,19 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
     [SerializeField]
     Text BuildingEffects;
 
+    [SerializeField]
+    GameObject UIFreeArea;
+
+    private void Start()
+    {
+        UIBuildings.SetActive(false);
+        UIFreeArea.SetActive(false);
+    }
+
+
     public void OnBuildingInteraction(GameObject Building)
     {
+        UIFreeArea.SetActive(false);
         UIBuildings.SetActive(true);
         BuildingNameText.text = Building.GetComponent<Building_Aure>().getBuildingType().ToString();
         BuildingSprite.sprite = Building.GetComponent<Building_Aure>().getSprite();
@@ -61,5 +72,12 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
             }
         }
         return buildingEffects;
+    }
+
+
+    public void OnFreeAreaInteraction()
+    {
+        UIBuildings.SetActive(false);
+        UIFreeArea.SetActive(true);
     }
 }
