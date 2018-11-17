@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class ZoomEffect_Shems : MonoBehaviour {
 
 
@@ -22,7 +23,6 @@ public class ZoomEffect_Shems : MonoBehaviour {
     {
         obj = gam;
         center = obj.transform.position;
-        Debug.Log(center.x);
     }
     public void setZoom(bool set)
     {
