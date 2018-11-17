@@ -4,15 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
+    GameObject UIBuildings;
+    Text BuildingNameText;
 
+    public void OnBuildingInteraction(GameObject Building)
+    {
+        UIBuildings.SetActive(true);
+        BuildingNameText.text = Building.GetComponent<Building_Aure>().GetType().ToString();
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    }
 }
