@@ -294,7 +294,7 @@ Prefab:
         type: 2}
       propertyPath: cityGameObject
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 936141296}
     - target: {fileID: 114422931862871842, guid: 5cb74953fc878bc48ab448a2b1fde1cd,
         type: 2}
       propertyPath: canva
@@ -303,6 +303,16 @@ Prefab:
     - target: {fileID: 224328500495835248, guid: 5cb74953fc878bc48ab448a2b1fde1cd,
         type: 2}
       propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114422931862871842, guid: 5cb74953fc878bc48ab448a2b1fde1cd,
+        type: 2}
+      propertyPath: canvaDisaster
+      value: 
+      objectReference: {fileID: 1311221072}
+    - target: {fileID: 114422931862871842, guid: 5cb74953fc878bc48ab448a2b1fde1cd,
+        type: 2}
+      propertyPath: percentChanceOfADisaster
       value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -323,6 +333,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f5192d66e36ed045b0d70cbf8d7f5b2, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &936141296 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1090364297233220, guid: 2f5192d66e36ed045b0d70cbf8d7f5b2,
+    type: 2}
+  m_PrefabInternal: {fileID: 936141295}
 --- !u!1001 &1238698748
 Prefab:
   m_ObjectHideFlags: 0
@@ -457,6 +472,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a55c9c5a48b3cd49aeb79ca1bfc645f, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1311221072 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1570544619625094, guid: 9a55c9c5a48b3cd49aeb79ca1bfc645f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1311221071}
 --- !u!1001 &1740374803
 Prefab:
   m_ObjectHideFlags: 0

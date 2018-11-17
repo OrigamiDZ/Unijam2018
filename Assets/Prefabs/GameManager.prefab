@@ -39,10 +39,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cityGameObject: {fileID: 0}
-  canva: {fileID: 0}
+  canvaDisaster: {fileID: 0}
   timeOfALunarCircle: 5
   percentChanceOfADisaster: 0
-  percentChanceOfADisaster1: 0
 --- !u!224 &224328500495835248
 RectTransform:
   m_ObjectHideFlags: 1
