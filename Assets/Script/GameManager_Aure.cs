@@ -35,6 +35,9 @@ public class GameManager_Aure: MonoBehaviour {
         // check if it's time for lunar change
         if ( cityScript.Get_time() > timeForNextLunarCircle)
         {
+            Debug.Log("It happened");
+            cityScript.SetLunarCycleNumber(cityScript.GetLunarCycleNumber() + 1);
+
             cityScript.Lunar_Cycle_Update(); // the function update the ressources values
 
             CreateOrNotADisaster();
