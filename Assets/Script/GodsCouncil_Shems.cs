@@ -15,7 +15,6 @@ public class GodsCouncil_Shems : MonoBehaviour {
     private GameObject cam;
     //private int[] array;
     private GameObject gam;
-    private Transform trans;
     enum God
     {
         Zeus, Hapi, Hades, Kronos, Quetzalcoatl
@@ -23,7 +22,6 @@ public class GodsCouncil_Shems : MonoBehaviour {
     //enum God { Zeus, Hapi, Hades, Kronos, Quetzalcoatl, Thor, Odin, Osiris, Amaterasu, Isis };
     // Use this for initialization
     void Start () {
-        trans = transform;
         number_of_door = Random.Range(3, 6);
 
         frustumWidth = 2.0f * distance * Mathf.Tan(cam.GetComponent<Camera>().fieldOfView * 0.5f * Mathf.Deg2Rad) * cam.GetComponent<Camera>().aspect;

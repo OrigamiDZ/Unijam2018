@@ -1,17 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class InputManagerGodCouncil_Shems : MonoBehaviour {
 
     private GameObject obj;
     [SerializeField]
     private GameObject canvas;
-	// Use this for initialization
-	void Start () {
-		
-	}
+    [SerializeField]
+    private Button yesButton;
+    [SerializeField]
+    private Button noButton;
+    // Use this for initialization
+    public void HideText()
+    {
+        canvas.SetActive(false);
+    } 
 
+    public void YesPressed()
+    {
+
+    }
+	void Start () {
+        canvas.SetActive(false);
+        noButton.onClick.AddListener(HideText);
+        yesButton.onClick.AddListener(YesPressed);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -30,7 +46,7 @@ public class InputManagerGodCouncil_Shems : MonoBehaviour {
                 obj = hit.transform.gameObject;
                 if (obj.tag == "Door")
                 {
-                    Instantiate(canvas, obj.transform);
+                    canvas.SetActive(true);
                 }
             }
 
