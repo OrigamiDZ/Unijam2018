@@ -9,11 +9,14 @@ public class GameManager_Aure: MonoBehaviour {
     [SerializeField]
     private GameObject cityGameObject;
     [SerializeField]
-    private GameObject canvaDisaster;
+    private GameObject canva;
     [SerializeField]
     private float timeOfALunarCircle;
     [SerializeField]
     private int percentChanceOfADisaster;
+    [SerializeField]
+    private int percentChanceOfADisaster1;
+
 
     private CityShems cityScript;
 
@@ -26,7 +29,7 @@ public class GameManager_Aure: MonoBehaviour {
         cityScript = cityGameObject.GetComponent<CityShems>();
         timeForNextLunarCircle = cityScript.Get_time() + timeOfALunarCircle;
 
-        my_disasters = canvaDisaster.GetComponentsInChildren<Disaster_Aure>();
+        my_disasters = canva.GetComponentsInChildren<Disaster_Aure>();
 
     }
 
