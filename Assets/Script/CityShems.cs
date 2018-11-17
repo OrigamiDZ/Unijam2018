@@ -68,9 +68,18 @@ public class CityShems : MonoBehaviour {
     {
         return numberOfFieldsLVL1;
     }
+    public int GetNumberOfFieldsLVL2()
+    {
+        return numberOfFieldsLVL2;
+    }
+
     public int GetNumberOfHousesLVL1()
     {
         return numberOfHousesLVL1;
+    }
+    public int GetNumberOfHousesLVL2()
+    {
+        return numberOfHousesLVL2;
     }
     public int GetNumberOfSacrified()
     {
@@ -99,14 +108,23 @@ public class CityShems : MonoBehaviour {
     {
         maxpopulation = setmaxpop;
     }
-    public void SetNumberOfFieldsLVL1(int setNumberOfFields)
+    public void SetNumberOfFieldsLVL1(int setNumberOfFieldsLVL1)
     {
-        numberOfFieldsLVL1 = setNumberOfFields;
+        numberOfFieldsLVL1 = setNumberOfFieldsLVL1;
     }
-    public void SetNumberOfHousesLVL1(int setNumberOfHouses)
+    public void SetNumberOfFieldsLVL2(int setNumberOfFieldsLVL2)
     {
-        numberOfHousesLVL1 = setNumberOfHouses;
+        numberOfFieldsLVL2 = setNumberOfFieldsLVL2;
     }
+    public void SetNumberOfHousesLVL1(int setNumberOfHousesLVL1)
+    {
+        numberOfHousesLVL1 = setNumberOfHousesLVL1;
+    }
+    public void SetNumberOfHousesLVL2(int setNumberOfHousesLVL2)
+    {
+        numberOfHousesLVL2 = setNumberOfHousesLVL2;
+    }
+
     public void SetNumberOfSacrified(int setNumberOfSacrified)
     {
         numberOfSacrified = setNumberOfSacrified;
@@ -121,7 +139,6 @@ public class CityShems : MonoBehaviour {
     {      
         souls += numberOfSacrified;
         people -= numberOfSacrified;
-
     }
 
     IEnumerator UpdateOfRessources()

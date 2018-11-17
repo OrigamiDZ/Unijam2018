@@ -279,8 +279,6 @@ MonoBehaviour:
   slider: {fileID: 932542255}
   textCountdown: {fileID: 1731465774}
   textTime: {fileID: 707808394}
-  ourRessourceSent: 300
-  enemyRessource: 0
 --- !u!224 &681275133
 RectTransform:
   m_ObjectHideFlags: 0
