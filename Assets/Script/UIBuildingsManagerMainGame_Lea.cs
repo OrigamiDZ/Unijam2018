@@ -115,7 +115,14 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
     }
 
 
-    
+    public void upgradeHouse()
+    {
+        if(selectedTile.GetComponent<Building_Aure>().lvl < 2)
+        {
+            selectedTile.GetComponent<Building_Aure>().lvl++;
+
+        }
+    }
 
     public void BuildFarm()
     {

@@ -3149,6 +3149,11 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 0.38571444
       objectReference: {fileID: 0}
+    - target: {fileID: 114375779167597550, guid: 93e4fbdc71ee6de42a3860a9ca96ab03,
+        type: 2}
+      propertyPath: lvl
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93e4fbdc71ee6de42a3860a9ca96ab03, type: 2}
   m_IsPrefabAsset: 0
@@ -5277,6 +5282,11 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 0.3763799
       objectReference: {fileID: 0}
+    - target: {fileID: 114289230304197990, guid: 98823d4ef749fd7499463aba43b62a4b,
+        type: 2}
+      propertyPath: lvl
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98823d4ef749fd7499463aba43b62a4b, type: 2}
   m_IsPrefabAsset: 0
@@ -5667,7 +5677,7 @@ Prefab:
       objectReference: {fileID: 495039860}
     - target: {fileID: 1805465616919070, guid: 5cb74953fc878bc48ab448a2b1fde1cd, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cb74953fc878bc48ab448a2b1fde1cd, type: 2}
@@ -5918,6 +5928,11 @@ Prefab:
         type: 2}
       propertyPath: m_SortingLayer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114354527426272794, guid: 7bfac33cee029ff48a21b6e44862af98,
+        type: 2}
+      propertyPath: lvl
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bfac33cee029ff48a21b6e44862af98, type: 2}
