@@ -39,6 +39,11 @@ public class CityShems : MonoBehaviour {
     [SerializeField]
     private float deathRateWhenNoFood;
 
+    [SerializeField]
+    private float timeOfAnRessourceUpdate;
+    [SerializeField]
+    private float timeOfALunarCircle;
+
     private int maxpopulation;
     private int lunarCycleNumber;
     private float time;
@@ -145,11 +150,28 @@ public class CityShems : MonoBehaviour {
         lunarCycleNumber = setLunarCycleNumber;
     }
 
-    public void Lunar_Cycle_Update()
-    {      
-        souls += numberOfSacrified;
-        people -= numberOfSacrified;
+    public float GetTimeOfAnRessourceUpdate()
+    {
+        return timeOfAnRessourceUpdate;
     }
+
+    public void SetTimeOfAnRessourceUpdate(int setTimeOfAnRessourceUpdate)
+    {
+        timeOfAnRessourceUpdate = setTimeOfAnRessourceUpdate;
+    }
+
+    public float GetTimeOfALunarCircle()
+    {
+        return timeOfALunarCircle;
+    }
+
+    public void SetTimeOfALunarCircle(int setTimeOfALunarCircle)
+    {
+        timeOfALunarCircle = setTimeOfALunarCircle;
+    }
+
+    
+
 
     IEnumerator UpdateOfRessources()
     {
@@ -187,10 +209,21 @@ public class CityShems : MonoBehaviour {
                     people = maxpopulation;
                 }
             }
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(timeOfAnRessourceUpdate);
         }
     }
 
+    IEnumerator LunarCircle()
+    {
+        while (true)
+        {
+            souls += numberOfSacrified;
+            people -= numberOfSacrified;
+            lunarCycleNumber++;
+            yield return new WaitForSeconds(timeOfALunarCircle);
+
+        }
+    }
 
     // Use this for initialization
     void Start () {
@@ -198,6 +231,7 @@ public class CityShems : MonoBehaviour {
         maxpopulation = numberOfHousesLVL1 * capacityHouseLVL1 + numberOfHousesLVL2 * capacityHouseLVL2;
 
         StartCoroutine("UpdateOfRessources");
+        StartCoroutine("LunarCircle");
     }
 	
 	// Update is called once per frame

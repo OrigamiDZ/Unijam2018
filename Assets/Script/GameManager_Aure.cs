@@ -10,8 +10,7 @@ public class GameManager_Aure: MonoBehaviour {
     private GameObject cityGameObject;
     [SerializeField]
     private GameObject canvaDisaster;
-    [SerializeField]
-    private float timeOfALunarCircle;
+
     [SerializeField]
     private float percentChanceOfADisaster;
 
@@ -24,7 +23,7 @@ public class GameManager_Aure: MonoBehaviour {
     private void Start()
     {
         cityScript = cityGameObject.GetComponent<CityShems>();
-        timeForNextLunarCircle = cityScript.Get_time() + timeOfALunarCircle;
+        timeForNextLunarCircle = cityScript.Get_time() + cityScript.GetTimeOfALunarCircle();
 
         my_disasters = canvaDisaster.GetComponentsInChildren<Disaster_Aure>();
 
@@ -38,11 +37,9 @@ public class GameManager_Aure: MonoBehaviour {
             Debug.Log("It happened");
             cityScript.SetLunarCycleNumber(cityScript.GetLunarCycleNumber() + 1);
 
-            cityScript.Lunar_Cycle_Update(); // the function update the ressources values
-
             CreateOrNotADisaster();
 
-            timeForNextLunarCircle = cityScript.Get_time() + timeOfALunarCircle;
+            timeForNextLunarCircle = cityScript.Get_time() + cityScript.GetTimeOfALunarCircle();
         }
     }
 
