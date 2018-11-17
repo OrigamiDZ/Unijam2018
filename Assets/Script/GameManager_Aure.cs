@@ -29,8 +29,13 @@ public class GameManager_Aure: MonoBehaviour {
 
             timeForNextLunarCircle = cityScript.Get_time() + timeOfALunarCircle;
         }
+
+
     }
 
-    //void 
+    void Disaster()
+    {
+
+    }
 
 }
