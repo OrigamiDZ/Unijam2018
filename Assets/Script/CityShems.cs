@@ -230,6 +230,14 @@ public class CityShems : MonoBehaviour {
             people -= numberOfSacrified;
             lunarCycleNumber++;
 
+            if (people <= 0)
+            {
+                souls = souls + people; // rééquillibrage souls
+                people = 0;
+                Debug.Log("GameOver");
+                StopGame();
+            }
+
         }
     }
 
