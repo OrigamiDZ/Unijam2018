@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1677,7 +1677,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 677173624}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2514,7 +2514,7 @@ RectTransform:
   - {fileID: 1225724513}
   - {fileID: 1034056043}
   m_Father: {fileID: 677173624}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3168,6 +3168,7 @@ RectTransform:
   - {fileID: 908487136}
   - {fileID: 319972977}
   - {fileID: 1372429477}
+  - {fileID: 685992773}
   - {fileID: 940582340}
   - {fileID: 687512540}
   - {fileID: 335205752}
@@ -3214,6 +3215,7 @@ MonoBehaviour:
   BuildingEffects: {fileID: 888968720}
   BuildingLVL: {fileID: 1845518671}
   BuildingUpgradeCost: {fileID: 959165037}
+  slider: {fileID: 0}
   UIFreeArea: {fileID: 687512539}
   housePrefabs: {fileID: 1025177165926088, guid: 98823d4ef749fd7499463aba43b62a4b,
     type: 2}
@@ -3254,12 +3256,12 @@ RectTransform:
   - {fileID: 917551203}
   - {fileID: 137428100}
   - {fileID: 1812875385}
-  m_Father: {fileID: 940582340}
-  m_RootOrder: 6
+  m_Father: {fileID: 677173624}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 37.600204, y: -275.62115}
+  m_AnchoredPosition: {x: 158.6002, y: -451.78113}
   m_SizeDelta: {x: 474.2, y: 40.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &685992774
@@ -3342,7 +3344,7 @@ RectTransform:
   - {fileID: 2122594813}
   - {fileID: 2005383105}
   m_Father: {fileID: 677173624}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4687,9 +4689,8 @@ RectTransform:
   - {fileID: 1845518670}
   - {fileID: 959165036}
   - {fileID: 888968719}
-  - {fileID: 685992773}
   m_Father: {fileID: 677173624}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4728,8 +4729,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 597, y: -310}
-  m_SizeDelta: {x: 188.2, y: 44.8}
+  m_AnchoredPosition: {x: 588.0002, y: -310}
+  m_SizeDelta: {x: 308, y: 44.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &959165037
 MonoBehaviour:
@@ -4757,7 +4758,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0

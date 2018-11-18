@@ -17,6 +17,7 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
     Text BuildingEffects;
     public Text BuildingLVL;
     public Text BuildingUpgradeCost;
+    public GameObject slider;
 
     [SerializeField]
     GameObject UIFreeArea;
@@ -45,6 +46,10 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
     {
         UIFreeArea.SetActive(false);
         UIBuildings.SetActive(true);
+        if(Building.GetComponent<Building_Aure>().getBuildingType() == EnumBuildingType_Lea.BuildingType.Temple)
+        {
+            slider.SetActive(true);
+        }
         selectedTile = Building;
         SelectTile();
         SoundEffects();
