@@ -22,12 +22,18 @@ public class FinalSceneManager : MonoBehaviour {
             Debug.Log("final is not defined, default values used");
         }
 
-        // TODO : launch video according to the string
-        /*
-         * si win contre jesus -> winAJ.Play();
-         * si perd conter jesus -> loseAJ.Play();
-         * sinon -> loser.Play();
-         */
+        if (final.Equals("WinAJ"))
+        {
+            winAJ.Play();
+        }
+        else if (final.Equals("LoseAJ"))
+        {
+            loseAJ.Play();
+        }
+        else if (final.Equals("Lose"))
+        {
+            loser.Play();
+        }
     }
 	
 	// Update is called once per frame

@@ -109,14 +109,14 @@ public class JesusRaid2Manager_Aure : MonoBehaviour {
             if (slider.value >= slider.maxValue)
             {
                 StopCoroutine("SliderDecrease");
-                PlayerPrefs.SetString("Final", "Win");
+                PlayerPrefs.SetString("Final", "WinAJ");
                 gameOn = false;
                 SceneManager.LoadScene(7);
             }
             if (slider.value <= slider.minValue)
             {
                 StopCoroutine("SliderDecrease");
-                PlayerPrefs.SetString("Final", "Lose");
+                PlayerPrefs.SetString("Final", "LoseAJ");
                 gameOn = false;
                 SceneManager.LoadScene(7);
 
@@ -127,11 +127,11 @@ public class JesusRaid2Manager_Aure : MonoBehaviour {
                 textTime.text = "Time : 0";
                 if (slider.value >= (slider.maxValue - slider.minValue)/2)
                 {
-                    PlayerPrefs.SetString("Final", "Win");
+                    PlayerPrefs.SetString("Final", "WinAJ");
                 }
                 else
                 {
-                    PlayerPrefs.SetString("Final", "Lose");
+                    PlayerPrefs.SetString("Final", "LoseAJ");
 
                 }
                 gameOn = false;
