@@ -20,6 +20,12 @@ public class InTheGodsRoomManager_Shems : MonoBehaviour {
     private Button YesChoice;
     [SerializeField]
     private Button NoChoice;
+    [SerializeField]
+    private GameObject Zeus;
+    [SerializeField]
+    private GameObject Freyja;
+    [SerializeField]
+    private GameObject Osiris;
     private float bonusSoulsProduction;
     private float bonusFood;
     private float bonusFertility;
@@ -150,6 +156,9 @@ public class InTheGodsRoomManager_Shems : MonoBehaviour {
     void Start () {
         //Debug.Log(InputManagerGodCouncil_Shems.divinity);
         //divinity = InputManagerGodCouncil_Shems.divinity;
+        Zeus.SetActive(false);
+        Osiris.SetActive(false);
+        Freyja.SetActive(false);
         canvas.SetActive(false);
         divinity = 0;
         bonusFood = 0;
@@ -180,6 +189,7 @@ public class InTheGodsRoomManager_Shems : MonoBehaviour {
         if (divinity == 0)
         {
             //Zeus
+            Zeus.SetActive(true);
             if (mood == 0)
             {
                 text.text = "Hahaha, bienvenu dans mon sanctuaire, jeune divinité. Je suis Zeus, le plus puissant des dieux." +
@@ -203,15 +213,16 @@ public class InTheGodsRoomManager_Shems : MonoBehaviour {
             }
             if (mood == 2)
             {
-                text.text = "Qui ose m'interrompre ??!! Maudit soit-tu, insolent lezard !!! Subis mon courroux misérable !";
+                text.text = "Qui ose m'interrompre ??!! Maudit sois-tu, insolent lezard !!! Subis mon courroux misérable !";
                 canvas.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
-                NoChoice.GetComponentInChildren<Text>().text = "Vous perdez " + (int)((currentSouls - 5) * 0.55) + " âmes";
+                NoChoice.GetComponentInChildren<Text>().text = "Vous perdez " + (currentSouls - (int)((currentSouls - 5) * 0.55)) + " âmes";
             }
         }
 
         if (divinity == 1)
         {
             //Freyja
+            Freyja.SetActive(true);
             if (mood == 0)
             {
                 text.text = "Bienvenue à toi dans mon jardin, jeune dieux. " +
@@ -240,7 +251,7 @@ public class InTheGodsRoomManager_Shems : MonoBehaviour {
                     YesChoice.GetComponentInChildren<Text>().text = "Payer 20 âmes";
                 else
                     canvas.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
-                NoChoice.GetComponentInChildren<Text>().text = "Refuser l'offre";
+                NoChoice.GetComponentInChildren<Text>().text = "Refuser l'offre et perdre "+ (currentSouls-(int)(currentSouls-2)*0.75) +"âmes.";
             }
         }
 
@@ -264,11 +275,12 @@ public class InTheGodsRoomManager_Shems : MonoBehaviour {
 
         if (divinity == 4)
         {
-            //Quetzalcoatl
+            //Osiris
+            Osiris.SetActive(true);
             if (mood == 0)
             {
-                text.text = "Bienvenue à toi, petit. Je suis le plus puissant des dieux. " +
-                    "Celui que les mortels craignent et respectent et que les dieux n'osent offenser. " +
+                text.text = "Bienvenue à toi, petit. Je suis le Osiris, le dieu des Morts. " +
+                    "Celui que les mortels craignent et respectent. " +
                     "Je peux t'apporter mes connaissances en rituels, qu'en penses-tu ?";
                 if (currentSouls > 10)
                     YesChoice.GetComponentInChildren<Text>().text = "Payer 10 âmes";
@@ -278,9 +290,8 @@ public class InTheGodsRoomManager_Shems : MonoBehaviour {
             }
             if (mood == 1)
             {
-                text.text = "Je suis le serpent à plume, le plus puissant des dieux. " +
-                    "Celui qui peut détruire des villes par ma présence seul. " +
-                    "Je connais d'innombrable savoir, toi aussi, tu es intéressé par mon savoir milléniaire ?";
+                text.text = "Mon frère Seth m'a trahi, mais même cela n'a suffit à m'arréter. " +
+                    "Mes connsaissances sur les arts mystiques sont sans limite, souhaites-tu que je t'en face parte d'une fraction ?";
                 if (currentSouls > 10)
                     YesChoice.GetComponentInChildren<Text>().text = "Payer 10 âmes";
                 else
@@ -289,9 +300,10 @@ public class InTheGodsRoomManager_Shems : MonoBehaviour {
             }
             if (mood == 2)
             {
-                text.text = "Imposteur, comment oses-tu te présenter en ces lieux ! Subis mon courroux et tremble de terreur!";
+                text.text = "Maudits Seth, Apophis et toutes ces engeances du Mal! " +
+                    "Quitte cette abode sacrée avant que je ne t'écorche vif, vile créature!";
                 canvas.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
-                NoChoice.GetComponentInChildren<Text>().text = "Vous perdez " + (int)((currentSouls - 10) * 0.75) + " âmes";
+                NoChoice.GetComponentInChildren<Text>().text = "Vous perdez " + (currentSouls-(int)((currentSouls - 10) * 0.75)) + " âmes.";
             }
         }
         canvas.SetActive(true);
@@ -302,10 +314,6 @@ public class InTheGodsRoomManager_Shems : MonoBehaviour {
 	void Update () {
         if (Input.GetMouseButtonDown(0))
         {
-
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit))
             {
             }
         }
