@@ -5479,7 +5479,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 414402288}
   m_HandleRect: {fileID: 0}
@@ -10143,7 +10143,7 @@ Prefab:
     - target: {fileID: 114422931862871842, guid: 5cb74953fc878bc48ab448a2b1fde1cd,
         type: 2}
       propertyPath: percentChanceOfARaid
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cb74953fc878bc48ab448a2b1fde1cd, type: 2}

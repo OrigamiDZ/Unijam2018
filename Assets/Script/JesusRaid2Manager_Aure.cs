@@ -25,10 +25,6 @@ public class JesusRaid2Manager_Aure : MonoBehaviour {
     [SerializeField]
     private TextMeshProUGUI textTime;
 
-    [SerializeField]
-    private GameObject introTextJesusBonus;
-    [SerializeField]
-    private GameObject introTextYouBonus;
 
     private float endTime;
     private bool gameOn;

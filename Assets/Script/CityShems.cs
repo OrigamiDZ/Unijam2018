@@ -285,7 +285,14 @@ public class CityShems : MonoBehaviour {
             bonusFood = 0;
             bonusSoulsProduction = 0;
             food = PlayerPrefs.GetInt("food");
-            people = PlayerPrefs.GetInt("people");
+            if (PlayerPrefs.GetInt("people") > maxpopulation)
+            {
+                people = maxpopulation;
+            }
+            else
+            {
+                people = PlayerPrefs.GetInt("people");
+            }
             souls = PlayerPrefs.GetInt("souls");
             numberOfFieldsLVL1 = PlayerPrefs.GetInt("numberOfFieldsLVL1");
             numberOfFieldsLVL2 = PlayerPrefs.GetInt("numberOfFieldsLVL2");
