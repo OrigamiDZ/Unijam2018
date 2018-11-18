@@ -34,6 +34,8 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
     public AudioSource farmSelectSFX;
     public AudioSource freeSelectSFX;
     public AudioSource constructSFX;
+
+    public GameObject Temple;
     private void Start()
     {
         UIBuildings.SetActive(false);
@@ -49,6 +51,8 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
         if(Building.GetComponent<Building_Aure>().getBuildingType() == EnumBuildingType_Lea.BuildingType.Temple)
         {
             slider.SetActive(true);
+            slider.GetComponent<Slider>().maxValue = Temple.GetComponent<Building_Aure>().getDeltaSouls();
+            slider.GetComponent<Slider>().value = city.GetComponent<CityShems>().GetNumberOfSacrified();
         }
         selectedTile = Building;
         SelectTile();
@@ -66,6 +70,7 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
             BuildingUpgradeCost.text = "Souls needed: " + Building.GetComponent<Building_Aure>().costUpgrade1.ToString();
         }
     }
+
 
     private string getEffectsBuilding(GameObject Building)
     {
@@ -99,14 +104,43 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
             buildingEffects += "\nSouls ";
             if (Building.GetComponent<Building_Aure>().getDeltaSouls() > 0)
             {
-                buildingEffects += "+ " + Building.GetComponent<Building_Aure>().getDeltaSouls().ToString() + " ";
+                if (selectedTile.GetComponent<Building_Aure>().getBuildingType() == EnumBuildingType_Lea.BuildingType.Temple)
+                {
+                    buildingEffects += "+ " + city.GetComponent<CityShems>().GetNumberOfSacrified();
+                }
+                else
+                {
+                    buildingEffects += "+ " + Building.GetComponent<Building_Aure>().getDeltaSouls().ToString();
+                }
             }
             else
             {
-                buildingEffects += " " + Building.GetComponent<Building_Aure>().getDeltaSouls().ToString() + " ";
+                if (selectedTile.GetComponent<Building_Aure>().getBuildingType() == EnumBuildingType_Lea.BuildingType.Temple)
+                {
+                    buildingEffects += " " + city.GetComponent<CityShems>().GetNumberOfSacrified();
+                }
+                else
+                {
+                    buildingEffects += " " + Building.GetComponent<Building_Aure>().getDeltaSouls().ToString();
+                }
             }
         }
         return buildingEffects;
+    }
+
+
+    public void interactionChangerValueSlider()
+    {
+        city.GetComponent<CityShems>().SetNumberOfSacrified((int)slider.GetComponent<Slider>().value);
+        BuildingEffects.text = "Souls: ";
+        if (Temple.GetComponent<Building_Aure>().getDeltaSouls() != 0)
+        {
+            if (Temple.GetComponent<Building_Aure>().getDeltaSouls() > 0)
+            {
+                BuildingEffects.text += "+ ";
+            }
+            BuildingEffects.text += city.GetComponent<CityShems>().GetNumberOfSacrified();
+        }
     }
 
 

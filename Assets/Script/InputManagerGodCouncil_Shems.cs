@@ -15,6 +15,7 @@ public class InputManagerGodCouncil_Shems : MonoBehaviour {
     [SerializeField]
     private Button noButton;
 
+    public static int divinity;
     private float timer=4f;
     private bool beginTimer = false;
     // Use this for initialization
@@ -23,12 +24,18 @@ public class InputManagerGodCouncil_Shems : MonoBehaviour {
         canvas.SetActive(false);
     } 
 
+    public int GetDivinity()
+    {
+        return divinity;
+    }
+
     public void YesPressed(GameObject gam)
     {
         beginTimer = true;
         gameObject.GetComponent<ZoomEffect_Shems>().setObj(gam);
         gameObject.GetComponent<ZoomEffect_Shems>().setZoom(true);
         gameObject.GetComponent<Fade_Shems>().BeginFade(1);
+        divinity = gam.GetComponent<Door_Shems>().GetDivinity();
     }
 	void Start () {
         canvas.SetActive(false);

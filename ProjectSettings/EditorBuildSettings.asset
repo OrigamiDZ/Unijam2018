@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SimGame(Main)_1.unity
     guid: 81c08c33a439fbc41aa970aa61db57ad
+  - enabled: 1
+    path: Assets/Scenes/GodCouncil_Shems.unity
+    guid: e910998ae4157694b82354bb8154c055
+  - enabled: 1
+    path: Assets/Scenes/Heaven's Room_Shems.unity
+    guid: bc92d6c4f6509744ca61cfc5e6e03cde
   m_configObjects: {}
