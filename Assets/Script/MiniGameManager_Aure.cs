@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 
 public class MiniGameManager_Aure : MonoBehaviour {
 
@@ -24,6 +24,9 @@ public class MiniGameManager_Aure : MonoBehaviour {
     [SerializeField]
     private TextMeshProUGUI textTime;
 
+    [SerializeField]
+    private GameObject endText;
+
     private float endTime;
     private bool gameOn;
 
@@ -33,6 +36,7 @@ public class MiniGameManager_Aure : MonoBehaviour {
     // Use this for initialization
     void Start () {
         gameOn = false;
+        endText.SetActive(false);
         if (countdown == 0)
         {
             Debug.Log("Countdown == 0");
@@ -90,23 +94,52 @@ public class MiniGameManager_Aure : MonoBehaviour {
             if (slider.value >= slider.maxValue)
             {
                 StopCoroutine("SliderDecrease");
-                PlayerPrefs.SetFloat("finalScore", slider.maxValue);
+                int people = PlayerPrefs.GetInt("people");
+                PlayerPrefs.SetInt("people", (int)(1.5*people) + 1);
                 gameOn = false;
+                endText.SetActive(true);
+                endText.GetComponentInChildren<TextMeshProUGUI>().text = "Vous avez erradiqué l'envahisseur, vous gagnez " + people + " prisonniers.";
             }
             if (slider.value <= slider.minValue)
             {
                 StopCoroutine("SliderDecrease");
-                PlayerPrefs.SetFloat("finalScore", slider.minValue);
+                int people = PlayerPrefs.GetInt("people");
+                PlayerPrefs.SetInt("people", (int)(0.5 * people) + 1);
                 gameOn = false;
+                endText.SetActive(true);
+                endText.GetComponentInChildren<TextMeshProUGUI>().text = "La moitié de vos habitants, soit " + people + " personnes, ont été fait prisonniers, êtes-vous sûr d'être un dieu ?";
             }
             if (endTime < Time.time)
             {
                 StopCoroutine("SliderDecrease");
                 textTime.text = "Time : 0";
-                PlayerPrefs.SetFloat("finalScore", slider.value);
+                int people = PlayerPrefs.GetInt("people");
+                int newPopulation = (int)(1.0f / (slider.minValue + slider.maxValue) * slider.value + 1.5f * slider.minValue + 0.5f * slider.maxValue) * people;
+                int peopleBalance = newPopulation - people;
+
+                PlayerPrefs.SetInt("people", newPopulation);
                 gameOn = false;
+                endText.SetActive(true);
+
+                if (peopleBalance < 0 )
+                {
+                    endText.GetComponentInChildren<TextMeshProUGUI>().text = -peopleBalance + " de vos habitants ont été fait prisonniers, je doute fort qu'ils s'en sortent ...";
+                }
+                else if (peopleBalance == 0)
+                {
+                    endText.GetComponentInChildren<TextMeshProUGUI>().text = "Match nul, aucune pertes ! (Ni gains remarque)";
+                }
+                else
+                {
+                    endText.GetComponentInChildren<TextMeshProUGUI>().text = "Vous avez réussis à faire quelques prisonniers, vous possédez " + peopleBalance  + " nouveaux habitants.";
+                }
             }
         }
+    }
+
+    public void ReturnGame()
+    {
+        SceneManager.LoadScene(1);
     }
 
     public void StartMiniGame()
