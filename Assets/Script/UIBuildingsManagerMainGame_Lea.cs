@@ -260,7 +260,7 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
             {
                 if (previousTile)
                 {
-                    if (previousTile.tag == "FreeArea" || previousTile.name == "Temple")
+                    if (previousTile.tag == "FreeArea")
                     {
                         previousTile.GetComponent<SpriteRenderer>().sprite = null;
                     }
