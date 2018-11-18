@@ -7,6 +7,7 @@ public class MainMenuManager : MonoBehaviour {
     
     public void StartButton()
     {
+        PlayerPrefs.SetString("IsItDebut", "Yes");
         SceneManager.LoadScene(1);
     }
 }

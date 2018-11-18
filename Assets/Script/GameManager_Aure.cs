@@ -18,6 +18,8 @@ public class GameManager_Aure: MonoBehaviour {
     [SerializeField]
     private float percentChanceOfADisaster;
     [SerializeField]
+    private float percentChanceOfARaid;
+    [SerializeField]
     private float totalOfLunarCircle;
     [SerializeField]
     private float jesusFinalInahibitantsRessource;
@@ -77,7 +79,7 @@ public class GameManager_Aure: MonoBehaviour {
         }
         else
         {
-            if (Random.Range(0, 9999) <= 9999 * percentChanceOfADisaster)
+            if (Random.Range(0, 9999) <= 9999 * percentChanceOfARaid)
             {
                 setActifARandomRaid();  // set (or not) randomly a raid
             }
@@ -111,6 +113,14 @@ public class GameManager_Aure: MonoBehaviour {
         PlayerPrefs.SetInt("numberOfHousesLVL2", cityScript.GetNumberOfHousesLVL2());
         PlayerPrefs.SetInt("lunarCycleNumber", cityScript.GetLunarCycleNumber());
         PlayerPrefs.SetInt("timer", cityScript.timer);
+
+        PlayerPrefs.SetFloat("ourRessourceSent", cityScript.Get_people());
+
+        float randomEnnemyForce = Random.Range(60, 140)/100.0f;
+
+        PlayerPrefs.SetFloat("enemyRessource", cityScript.Get_people()* randomEnnemyForce);
+
+        SceneManager.LoadScene(4);
 
     }
 
