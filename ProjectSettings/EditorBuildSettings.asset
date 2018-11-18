@@ -17,4 +17,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Heaven's Room_Shems.unity
     guid: bc92d6c4f6509744ca61cfc5e6e03cde
+  - enabled: 1
+    path: Assets/Scenes/MiniJeu-Aurelia.unity
+    guid: f681be0b76ab51d4db5bdf75758e9aa0
+  - enabled: 1
+    path: Assets/Scenes/JesusRaid_Aure.unity
+    guid: 1b6db754e7df0f345bb1ddacc5800703
+  - enabled: 1
+    path: Assets/Scenes/JesusRaid2_Aure.unity
+    guid: c7c7ace1459a3ac4584a97ca40368723
+  - enabled: 1
+    path: Assets/Scenes/FinalScene.unity
+    guid: 4279e8c46424d5f4aa904bbdf43c4b88
   m_configObjects: {}
