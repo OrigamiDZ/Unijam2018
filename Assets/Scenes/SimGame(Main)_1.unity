@@ -1677,7 +1677,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 677173624}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2514,7 +2514,7 @@ RectTransform:
   - {fileID: 1225724513}
   - {fileID: 1034056043}
   m_Father: {fileID: 677173624}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3168,7 +3168,6 @@ RectTransform:
   - {fileID: 908487136}
   - {fileID: 319972977}
   - {fileID: 1372429477}
-  - {fileID: 685992773}
   - {fileID: 940582340}
   - {fileID: 687512540}
   - {fileID: 335205752}
@@ -3215,7 +3214,7 @@ MonoBehaviour:
   BuildingEffects: {fileID: 888968720}
   BuildingLVL: {fileID: 1845518671}
   BuildingUpgradeCost: {fileID: 959165037}
-  slider: {fileID: 0}
+  slider: {fileID: 685992772}
   UIFreeArea: {fileID: 687512539}
   housePrefabs: {fileID: 1025177165926088, guid: 98823d4ef749fd7499463aba43b62a4b,
     type: 2}
@@ -3227,6 +3226,7 @@ MonoBehaviour:
   farmSelectSFX: {fileID: 79012162}
   freeSelectSFX: {fileID: 469596007}
   constructSFX: {fileID: 1269142156}
+  Temple: {fileID: 1862581023}
 --- !u!1 &685992772
 GameObject:
   m_ObjectHideFlags: 0
@@ -3256,12 +3256,12 @@ RectTransform:
   - {fileID: 917551203}
   - {fileID: 137428100}
   - {fileID: 1812875385}
-  m_Father: {fileID: 677173624}
-  m_RootOrder: 4
+  m_Father: {fileID: 940582340}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 158.6002, y: -451.78113}
+  m_AnchoredPosition: {x: 37.600204, y: -275.62115}
   m_SizeDelta: {x: 474.2, y: 40.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &685992774
@@ -3304,12 +3304,23 @@ MonoBehaviour:
   m_HandleRect: {fileID: 182881037}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 10
+  m_MaxValue: 20
   m_WholeNumbers: 1
   m_Value: 5
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 677173626}
+        m_MethodName: interactionChangerValueSlider
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &687512539
@@ -3344,7 +3355,7 @@ RectTransform:
   - {fileID: 2122594813}
   - {fileID: 2005383105}
   m_Father: {fileID: 677173624}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4689,8 +4700,9 @@ RectTransform:
   - {fileID: 1845518670}
   - {fileID: 959165036}
   - {fileID: 888968719}
+  - {fileID: 685992773}
   m_Father: {fileID: 677173624}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -8913,6 +8925,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 170c9e420f26f1f4a9b330560d4fb64e, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1862581023 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1500408491748734, guid: 7bfac33cee029ff48a21b6e44862af98,
+    type: 2}
+  m_PrefabInternal: {fileID: 2071617983}
 --- !u!4 &1867390962 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4904550273861918, guid: 7bfac33cee029ff48a21b6e44862af98,
