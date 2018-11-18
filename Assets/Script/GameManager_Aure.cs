@@ -53,6 +53,7 @@ public class GameManager_Aure: MonoBehaviour {
     private void Start()
     {
         numberOfDisasters = 0;
+
         cityScript = cityGameObject.GetComponent<CityShems>();
         for (int i = 0; i < canvaDisaster.transform.childCount; i++)
         {
@@ -67,13 +68,19 @@ public class GameManager_Aure: MonoBehaviour {
         pauseText.text = "";
     }
 
-    void CreateOrNotADisaster()
+    void CreateOrNotAnEvent()
     {
         // set (or not) a random event
         if (Random.Range(0, 9999) <= 9999 * percentChanceOfADisaster)
         {
-            Debug.Log("A disaster happened");
             setActifARandomDisaster();  // set (or not) randomly a disaster
+        }
+        else
+        {
+            if (Random.Range(0, 9999) <= 9999 * percentChanceOfADisaster)
+            {
+                setActifARandomRaid();  // set (or not) randomly a raid
+            }
         }
     }
 
@@ -93,12 +100,18 @@ public class GameManager_Aure: MonoBehaviour {
         PutGameInPause(true);
     }
 
+    void setActifARandomRaid()
+    {
+
+
+    }
+
     private void Update()
     {
         if (currentLunarCycleNumber < cityScript.GetLunarCycleNumber())
         {
             currentLunarCycleNumber = cityScript.GetLunarCycleNumber();
-            CreateOrNotADisaster();
+            CreateOrNotAnEvent();
         }
 
         if (currentLunarCycleNumber >= totalOfLunarCircle)
