@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CityShems : MonoBehaviour {
@@ -327,8 +328,9 @@ public class CityShems : MonoBehaviour {
                 {
                     souls = souls + people; // rééquillibrage souls
                     people = 0;
-                    Debug.Log("GameOver");
                     StopGame();
+                    PlayerPrefs.SetString("Final", "Lose");
+                    SceneManager.LoadScene(7); 
                 }
             }
         }
