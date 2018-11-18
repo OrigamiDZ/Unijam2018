@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CityShems : MonoBehaviour {
 
@@ -46,6 +47,8 @@ public class CityShems : MonoBehaviour {
 
     private int maxpopulation;
     private int lunarCycleNumber;
+    public GameObject sliderMoon;
+    public int timer;
 
 
     //Getter
@@ -224,11 +227,12 @@ public class CityShems : MonoBehaviour {
     {
         while (true)
         {
-            yield return new WaitForSeconds(timeOfALunarCircle);
+            yield return new WaitForSecondsRealtime(timeOfALunarCircle);
 
             souls += numberOfSacrified;
             people -= numberOfSacrified;
             lunarCycleNumber++;
+            StartCoroutine("timerMoonAndJesus");
 
             if (people <= 0)
             {
@@ -245,14 +249,37 @@ public class CityShems : MonoBehaviour {
     void Start () {
         lunarCycleNumber = 0;
         maxpopulation = numberOfHousesLVL1 * capacityHouseLVL1 + numberOfHousesLVL2 * capacityHouseLVL2;
+        sliderMoon.GetComponent<Slider>().maxValue = timeOfALunarCircle;
+        sliderMoon.GetComponent<Slider>().value = 0;
+        timer = 0;
+        StartCoroutine("timerMoonAndJesus");
 
         ReStartGame();
     }
 	
 	// Update is called once per frame
 	void Update () {
-	}
+    }
 
+    IEnumerator timerMoonAndJesus()
+    {
+        while (true)
+        {
+            if(timer < timeOfALunarCircle)
+            {
+                yield return new WaitForSecondsRealtime(1);
+                timer++;
+                sliderMoon.GetComponent<Slider>().value++;
+            }
+            if(timer == timeOfALunarCircle)
+            {
+                timer = 0;
+                sliderMoon.GetComponent<Slider>().value = 0;
+                break;
+            }
+        }
+
+    }
 
 
 }
