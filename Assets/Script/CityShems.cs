@@ -334,22 +334,24 @@ public class CityShems : MonoBehaviour {
                     PlayerPrefs.SetString("Final", "Lose");
                     SceneManager.LoadScene(7); 
                 }
+
+                if (lunarCycleNumber % meetingwithGodCycle == 0)
+                {
+                    PlayerPrefs.SetInt("food", food);
+                    PlayerPrefs.SetInt("people", people);
+                    PlayerPrefs.SetInt("souls", souls);
+                    PlayerPrefs.SetInt("numberOfFieldsLVL1", numberOfFieldsLVL1);
+                    PlayerPrefs.SetInt("numberOfFieldsLVL2", numberOfFieldsLVL2);
+                    PlayerPrefs.SetInt("numberOfHousesLVL1", numberOfHousesLVL1);
+                    PlayerPrefs.SetInt("numberOfHousesLVL2", numberOfHousesLVL2);
+                    PlayerPrefs.SetInt("lunarCycleNumber", lunarCycleNumber);
+                    PlayerPrefs.SetInt("timer", timer);
+
+                    SceneManager.LoadScene(2);
+                }
             }
 
-            if (lunarCycleNumber % meetingwithGodCycle == 0)
-            {
-                PlayerPrefs.SetInt("food", food);
-                PlayerPrefs.SetInt("people", people);
-                PlayerPrefs.SetInt("souls", souls);
-                PlayerPrefs.SetInt("numberOfFieldsLVL1", numberOfFieldsLVL1);
-                PlayerPrefs.SetInt("numberOfFieldsLVL2", numberOfFieldsLVL2);
-                PlayerPrefs.SetInt("numberOfHousesLVL1", numberOfHousesLVL1);
-                PlayerPrefs.SetInt("numberOfHousesLVL2", numberOfHousesLVL2);
-                PlayerPrefs.SetInt("lunarCycleNumber", lunarCycleNumber);
-                PlayerPrefs.SetInt("timer", timer);
 
-                SceneManager.LoadScene(2);
-            }
         }
     }
 
