@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MovingForeground_Lea : MonoBehaviour {
-    public float scrollSpeed;
-    public float tileSizeZ;
+    public GameObject sprite1;
+    public GameObject sprite2;
+    public GameObject startPos;
+    public GameObject endPos;
 
-    private Vector3 startPosition;
-
-    void Start()
+    private void Update()
     {
-        startPosition = transform.position;
-    }
-
-    void Update()
-    {
-        float newPosition = Mathf.Repeat(Time.time * scrollSpeed, tileSizeZ);
-        transform.position = startPosition + Vector3.forward * newPosition;
+        if(sprite1.transform.position.x >= endPos.transform.position.x)
+        {
+            sprite1.transform.position = startPos.transform.position;
+        }
+        if (sprite2.transform.position.x >= endPos.transform.position.x)
+        {
+            sprite2.transform.position = startPos.transform.position;
+        }
     }
 }
