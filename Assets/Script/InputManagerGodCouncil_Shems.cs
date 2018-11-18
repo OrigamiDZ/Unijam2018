@@ -41,6 +41,8 @@ public class InputManagerGodCouncil_Shems : MonoBehaviour {
         canvas.SetActive(false);
         noButton.onClick.AddListener(HideText);
         yesButton.onClick.AddListener(() => YesPressed(obj));
+        timer = 4f;
+        beginTimer = false;
     }
     // Update is called once per frame
     void Update()
@@ -65,8 +67,8 @@ public class InputManagerGodCouncil_Shems : MonoBehaviour {
                     {
                         canvas.SetActive(true);
                         //transform.position.Set(0, 0, 0);
-                        canvas.transform.GetChild(0).GetComponent<RectTransform>().anchorMin = new Vector2(0.5f + obj.transform.position.x / 40, 0.85f);
-                        canvas.transform.GetChild(0).GetComponent<RectTransform>().anchorMax = new Vector2(0.5f + obj.transform.position.x / 40, 0.85f);
+                        //canvas.transform.GetChild(0).GetComponent<RectTransform>().anchorMin = new Vector2(0.5f + obj.transform.position.x / 40, 0.85f);
+                        //canvas.transform.GetChild(0).GetComponent<RectTransform>().anchorMax = new Vector2(0.5f + obj.transform.position.x / 40, 0.85f);
                     }
                 }
             }
@@ -78,8 +80,6 @@ public class InputManagerGodCouncil_Shems : MonoBehaviour {
             timer -= Time.deltaTime;
             if (timer < 0)
             {
-                timer = 4f;
-                beginTimer = false;
                 SceneManager.LoadScene(3);
             }
         }

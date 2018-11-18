@@ -17,9 +17,9 @@ public class GodsCouncil_Shems : MonoBehaviour {
     private GameObject gam;
     enum God
     {
-        Zeus, Hapi, Hades, Kronos, Quetzalcoatl
+        Zeus, Freyja, Osiris, Kronos, Quetzalcoatl
     };
-    //enum God { Zeus, Hapi, Hades, Kronos, Quetzalcoatl, Thor, Odin, Osiris, Amaterasu, Isis };
+    //enum God { Zeus, Freyja, Osiris, Kronos, Quetzalcoatl, Thor, Odin, Osiris, Amaterasu, Isis };
     // Use this for initialization
     void Start () {
         number_of_door = Random.Range(3, 6);
@@ -28,7 +28,7 @@ public class GodsCouncil_Shems : MonoBehaviour {
         for (int i=0; i<number_of_door; i++)
         {
 
-            gam = (GameObject)Instantiate(door, new Vector3(-frustumWidth + ((2.0f * i + 1) * frustumWidth / (number_of_door)), 0, distance), transform.rotation);
+            gam = (GameObject)Instantiate(door, new Vector3(-frustumWidth + ((2.0f * i + 1) * frustumWidth / (number_of_door)), -number_of_door, distance), transform.rotation);
             gam.transform.localScale -= new Vector3(0.2f, 0.2f, 0) * (number_of_door - 3);
             gam.GetComponent<Door_Shems>().SetDivinity((int)Random.Range(0, 5));
         }
