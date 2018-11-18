@@ -155,12 +155,12 @@ public class InTheGodsRoomManager_Shems : MonoBehaviour {
 
     void Start () {
         //Debug.Log(InputManagerGodCouncil_Shems.divinity);
-        //divinity = InputManagerGodCouncil_Shems.divinity;
+        divinity = InputManagerGodCouncil_Shems.divinity;
         Zeus.SetActive(false);
         Osiris.SetActive(false);
         Freyja.SetActive(false);
         canvas.SetActive(false);
-        divinity = 0;
+        //divinity = 0;
         bonusFood = 0;
         bonusSoulsProduction = 0;
         bonusFertility = 0;
