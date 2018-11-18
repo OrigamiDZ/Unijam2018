@@ -91,6 +91,9 @@ TagManager:
   - name: Foreground
     uniqueID: 3920554607
     locked: 0
+  - name: EnvironmentForeground
+    uniqueID: 872146427
+    locked: 0
   - name: UIMain
     uniqueID: 3009771971
     locked: 0
