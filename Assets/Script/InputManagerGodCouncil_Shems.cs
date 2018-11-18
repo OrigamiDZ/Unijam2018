@@ -78,6 +78,8 @@ public class InputManagerGodCouncil_Shems : MonoBehaviour {
             timer -= Time.deltaTime;
             if (timer < 0)
             {
+                timer = 4f;
+                beginTimer = false;
                 SceneManager.LoadScene(3);
             }
         }
