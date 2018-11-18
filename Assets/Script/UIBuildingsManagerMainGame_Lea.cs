@@ -54,6 +54,10 @@ public class UIBuildingsManagerMainGame_Lea : MonoBehaviour {
             slider.GetComponent<Slider>().maxValue = Temple.GetComponent<Building_Aure>().getDeltaSouls();
             slider.GetComponent<Slider>().value = city.GetComponent<CityShems>().GetNumberOfSacrified();
         }
+        else
+        {
+            slider.SetActive(false);
+        }
         selectedTile = Building;
         SelectTile();
         SoundEffects();
