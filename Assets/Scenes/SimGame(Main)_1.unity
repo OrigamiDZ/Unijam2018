@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5669,7 +5669,7 @@ MonoBehaviour:
   deathRateWhenNoFood: 0.2
   timeOfAnRessourceUpdate: 3
   timeOfALunarCircle: 20
-  meetingwithGodCycle: 0
+  meetingwithGodCycle: 3
   sliderMoon: {fileID: 1003206110}
   sliderJesus: {fileID: 1452462419}
   gameManager: {fileID: 1967965082}
@@ -10072,7 +10072,7 @@ Prefab:
     - target: {fileID: 114422931862871842, guid: 5cb74953fc878bc48ab448a2b1fde1cd,
         type: 2}
       propertyPath: totalOfLunarCircle
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 114422931862871842, guid: 5cb74953fc878bc48ab448a2b1fde1cd,
         type: 2}
