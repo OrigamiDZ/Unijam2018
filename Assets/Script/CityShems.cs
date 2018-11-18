@@ -45,6 +45,11 @@ public class CityShems : MonoBehaviour {
     [SerializeField]
     private float timeOfALunarCircle;
 
+    private float bonusFertility;
+    private float bonusFood;
+    private float bonusSoulsProduction;
+
+
     private int maxpopulation;
     private int lunarCycleNumber;
     public GameObject sliderMoon;
@@ -169,6 +174,21 @@ public class CityShems : MonoBehaviour {
         timeOfALunarCircle = setTimeOfALunarCircle;
     }
 
+    public void SetBonusFertility(float setBonusFertility)
+    {
+        bonusFertility = setBonusFertility;
+    }
+
+    public void SetBonusFood(float setBonusFood)
+    {
+        bonusFood = setBonusFood;
+    }
+
+    public void SetBonusSoulsProduction(float setBonusSoulsProduction)
+    {
+        bonusSoulsProduction = setBonusSoulsProduction;
+    }
+
     public void ReStartGame()
     {
         StartCoroutine("UpdateOfRessources");
@@ -192,7 +212,7 @@ public class CityShems : MonoBehaviour {
 
 
             // update of the food
-            int foodProducted = numberOfFieldsLVL1 * productivityOfFieldsLVL1 + numberOfFieldsLVL2 * productivityOfFieldsLVL2;
+            int foodProducted = numberOfFieldsLVL1 * (int)(productivityOfFieldsLVL1 + bonusFood) + numberOfFieldsLVL2 * (int)(productivityOfFieldsLVL2 + bonusFood);
             int foodConsumed = people * food_consumed_by_hab;
 
             if (food + foodProducted < foodConsumed)
@@ -209,7 +229,7 @@ public class CityShems : MonoBehaviour {
             // update of the population
             if (food != 0)
             {
-                int babies = (int)(people * fertilityRate) + 1;
+                int babies = (int)(people * (fertilityRate + bonusFertility)) + 1;
                 if (people + babies <= maxpopulation)
                 {
                     people = people + babies;
@@ -229,7 +249,7 @@ public class CityShems : MonoBehaviour {
         {
             yield return new WaitForSecondsRealtime(timeOfALunarCircle);
 
-            souls += numberOfSacrified;
+            souls += (int)(numberOfSacrified * bonusSoulsProduction);
             people -= numberOfSacrified;
             lunarCycleNumber++;
             StartCoroutine("timerMoonAndJesus");
@@ -258,8 +278,7 @@ public class CityShems : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
-    }
+
 
     IEnumerator timerMoonAndJesus()
     {

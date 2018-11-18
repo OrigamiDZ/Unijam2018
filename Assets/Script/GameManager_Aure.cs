@@ -108,7 +108,7 @@ public class GameManager_Aure: MonoBehaviour {
             PlayerPrefs.SetFloat("ourSoulsRessourceSentFinal", cityScript.Get_souls());
             PlayerPrefs.SetFloat("jesusSoulsRessourceFinal", jesusFinalSoulsRessource);
 
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(5);
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
