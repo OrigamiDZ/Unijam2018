@@ -77,8 +77,8 @@ MonoBehaviour:
   costUpgrade1: 7
   selectedSprite: {fileID: 21300000, guid: c9ddb7cf61d210240b620156dee8bd6c, type: 3}
   lvl: 0
-  upgradedSprite: {fileID: 21300000, guid: 15168a11838bfd3449a0dd7bf7389e8d, type: 3}
-  upgradedSelectSprite: {fileID: 21300000, guid: 15168a11838bfd3449a0dd7bf7389e8d,
+  upgradedSprite: {fileID: 21300000, guid: 0c0f869cdc2a74d4aa5d6e43d20be9ec, type: 3}
+  upgradedSelectSprite: {fileID: 21300000, guid: e4434e7ee3a5ba1468a68f11b55deaeb,
     type: 3}
 --- !u!212 &212142607816975654
 SpriteRenderer:

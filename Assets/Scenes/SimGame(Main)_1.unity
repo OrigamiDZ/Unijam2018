@@ -3396,7 +3396,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -41.85, y: 6.600002}
+  m_AnchoredPosition: {x: -41.85, y: 6.6000004}
   m_SizeDelta: {x: -93.7, y: 63.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &685992772
@@ -5043,7 +5043,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -423, y: 24}
+  m_AnchoredPosition: {x: -368, y: 4}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1003206112
@@ -5440,7 +5440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   food: 50
   people: 5
-  souls: 10
+  souls: 20
   numberOfFieldsLVL1: 1
   productivityOfFieldsLVL1: 15
   numberOfFieldsLVL2: 0
@@ -9678,6 +9678,11 @@ Prefab:
       propertyPath: pauseText
       value: 
       objectReference: {fileID: 335205750}
+    - target: {fileID: 114422931862871842, guid: 5cb74953fc878bc48ab448a2b1fde1cd,
+        type: 2}
+      propertyPath: totalOfLunarCircle
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cb74953fc878bc48ab448a2b1fde1cd, type: 2}
   m_IsPrefabAsset: 0
