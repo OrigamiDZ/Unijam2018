@@ -102,7 +102,15 @@ public class GameManager_Aure: MonoBehaviour {
 
     void setActifARandomRaid()
     {
-
+        PlayerPrefs.SetInt("food", cityScript.Get_food());
+        PlayerPrefs.SetInt("people", cityScript.Get_people());
+        PlayerPrefs.SetInt("souls", cityScript.Get_souls());
+        PlayerPrefs.SetInt("numberOfFieldsLVL1", cityScript.GetNumberOfFieldsLVL1());
+        PlayerPrefs.SetInt("numberOfFieldsLVL2", cityScript.GetNumberOfFieldsLVL2());
+        PlayerPrefs.SetInt("numberOfHousesLVL1", cityScript.GetNumberOfHousesLVL1());
+        PlayerPrefs.SetInt("numberOfHousesLVL2", cityScript.GetNumberOfHousesLVL2());
+        PlayerPrefs.SetInt("lunarCycleNumber", cityScript.GetLunarCycleNumber());
+        PlayerPrefs.SetInt("timer", cityScript.timer);
 
     }
 

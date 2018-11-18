@@ -249,7 +249,7 @@ public class CityShems : MonoBehaviour {
         {
             yield return new WaitForSecondsRealtime(timeOfALunarCircle);
 
-            souls += (int)(numberOfSacrified * bonusSoulsProduction);
+            souls += (int)(numberOfSacrified + numberOfSacrified * bonusSoulsProduction);
             people -= numberOfSacrified;
             lunarCycleNumber++;
             StartCoroutine("timerMoonAndJesus");
@@ -267,14 +267,32 @@ public class CityShems : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        lunarCycleNumber = 0;
+        
         maxpopulation = numberOfHousesLVL1 * capacityHouseLVL1 + numberOfHousesLVL2 * capacityHouseLVL2;
         sliderMoon.GetComponent<Slider>().maxValue = timeOfALunarCircle;
         sliderMoon.GetComponent<Slider>().value = 0;
-        timer = 0;
-        StartCoroutine("timerMoonAndJesus");
 
+        if (PlayerPrefs.GetString("IsItDebut").Equals("Yes"))
+        {
+            lunarCycleNumber = 0;
+            timer = 0;
+        }
+        else
+        {
+            food = PlayerPrefs.GetInt("food");
+            people = PlayerPrefs.GetInt("people");
+            souls = PlayerPrefs.GetInt("souls");
+            numberOfFieldsLVL1 = PlayerPrefs.GetInt("numberOfFieldsLVL1");
+            numberOfFieldsLVL2 = PlayerPrefs.GetInt("numberOfFieldsLVL2");
+            numberOfHousesLVL1 = PlayerPrefs.GetInt("numberOfHousesLVL1");
+            numberOfHousesLVL2 = PlayerPrefs.GetInt("numberOfHousesLVL2");
+            lunarCycleNumber = PlayerPrefs.GetInt("lunarCycleNumber");
+            timer = PlayerPrefs.GetInt("timer");
+        }
+
+        StartCoroutine("timerMoonAndJesus");
         ReStartGame();
+        PlayerPrefs.SetString("IsItDebut", "No");
     }
 	
 	// Update is called once per frame
