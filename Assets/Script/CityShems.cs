@@ -53,6 +53,8 @@ public class CityShems : MonoBehaviour {
     private int maxpopulation;
     private int lunarCycleNumber;
     public GameObject sliderMoon;
+    public GameObject sliderJesus;
+    public GameObject gameManager;
     public int timer;
 
 
@@ -271,6 +273,8 @@ public class CityShems : MonoBehaviour {
         maxpopulation = numberOfHousesLVL1 * capacityHouseLVL1 + numberOfHousesLVL2 * capacityHouseLVL2;
         sliderMoon.GetComponent<Slider>().maxValue = timeOfALunarCircle;
         sliderMoon.GetComponent<Slider>().value = 0;
+        sliderJesus.GetComponent<Slider>().maxValue = gameManager.GetComponent<GameManager_Aure>().getTotalLunarCycle();
+        sliderJesus.GetComponent<Slider>().value = 0;
 
         if (PlayerPrefs.GetString("IsItDebut").Equals("Yes"))
         {
@@ -312,6 +316,7 @@ public class CityShems : MonoBehaviour {
             {
                 timer = 0;
                 sliderMoon.GetComponent<Slider>().value = 0;
+                sliderJesus.GetComponent<Slider>().value++;
                 break;
             }
         }

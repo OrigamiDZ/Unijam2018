@@ -20,7 +20,7 @@ public class GameManager_Aure: MonoBehaviour {
     [SerializeField]
     private float percentChanceOfARaid;
     [SerializeField]
-    private float totalOfLunarCircle;
+    private int totalOfLunarCircle;
     [SerializeField]
     private float jesusFinalInahibitantsRessource;
     [SerializeField]
@@ -153,5 +153,10 @@ public class GameManager_Aure: MonoBehaviour {
                 PutGameInPause(true);
             }
         }
+    }
+
+    public int getTotalLunarCycle()
+    {
+        return totalOfLunarCircle;
     }
 }
