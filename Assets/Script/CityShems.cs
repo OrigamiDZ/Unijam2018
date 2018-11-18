@@ -55,8 +55,9 @@ public class CityShems : MonoBehaviour {
     public GameObject sliderMoon;
     public GameObject sliderJesus;
     public GameObject gameManager;
-    public int timer;
+    private int timer;
 
+    private bool gameIsPausedManager;
 
     //Getter
     public int Get_food() {
@@ -191,16 +192,27 @@ public class CityShems : MonoBehaviour {
         bonusSoulsProduction = setBonusSoulsProduction;
     }
 
+    public int getTimer()
+    {
+        return timer;
+    }
+
+    public void setGameIsPausedManager(bool setGameIsPausedManages)
+    {
+        gameIsPausedManager = setGameIsPausedManages;
+    }
+
     public void ReStartGame()
     {
         StartCoroutine("UpdateOfRessources");
-        StartCoroutine("LunarCircle");
+        StartCoroutine("timerMoonAndJesus");
     }
 
     public void StopGame()
     {
         StopCoroutine("UpdateOfRessources");
-        StopCoroutine("LunarCircle");
+        StopCoroutine("timerMoonAndJesus");
+        StopAllCoroutines();
     }
 
 
@@ -245,27 +257,7 @@ public class CityShems : MonoBehaviour {
         }
     }
 
-    IEnumerator LunarCircle()
-    {
-        while (true)
-        {
-            yield return new WaitForSecondsRealtime(timeOfALunarCircle);
 
-            souls += (int)(numberOfSacrified + numberOfSacrified * bonusSoulsProduction);
-            people -= numberOfSacrified;
-            lunarCycleNumber++;
-            StartCoroutine("timerMoonAndJesus");
-
-            if (people <= 0)
-            {
-                souls = souls + people; // rééquillibrage souls
-                people = 0;
-                Debug.Log("GameOver");
-                StopGame();
-            }
-
-        }
-    }
 
     // Use this for initialization
     void Start () {
@@ -280,9 +272,15 @@ public class CityShems : MonoBehaviour {
         {
             lunarCycleNumber = 0;
             timer = 0;
+            bonusFertility = 0;
+            bonusFood = 0;
+            bonusSoulsProduction = 0;
         }
         else
         {
+            bonusFertility = 0;
+            bonusFood = 0;
+            bonusSoulsProduction = 0;
             food = PlayerPrefs.GetInt("food");
             people = PlayerPrefs.GetInt("people");
             souls = PlayerPrefs.GetInt("souls");
@@ -292,9 +290,11 @@ public class CityShems : MonoBehaviour {
             numberOfHousesLVL2 = PlayerPrefs.GetInt("numberOfHousesLVL2");
             lunarCycleNumber = PlayerPrefs.GetInt("lunarCycleNumber");
             timer = PlayerPrefs.GetInt("timer");
+            bonusFertility = PlayerPrefs.GetFloat("bonusFertility");
+            bonusFood = PlayerPrefs.GetFloat("bonusFood");
+            bonusSoulsProduction = PlayerPrefs.GetFloat("bonusSoulsProduction");
         }
 
-        StartCoroutine("timerMoonAndJesus");
         ReStartGame();
         PlayerPrefs.SetString("IsItDebut", "No");
     }
@@ -306,21 +306,32 @@ public class CityShems : MonoBehaviour {
     {
         while (true)
         {
-            if(timer < timeOfALunarCircle)
-            {
-                yield return new WaitForSecondsRealtime(1);
+            yield return new WaitForSecondsRealtime(1);
+            if (timer < timeOfALunarCircle)
+            {                
                 timer++;
                 sliderMoon.GetComponent<Slider>().value++;
             }
-            if(timer == timeOfALunarCircle)
+            else
             {
                 timer = 0;
                 sliderMoon.GetComponent<Slider>().value = 0;
                 sliderJesus.GetComponent<Slider>().value++;
-                break;
+
+                souls += (int)(numberOfSacrified + numberOfSacrified * bonusSoulsProduction);
+                people -= numberOfSacrified;
+                lunarCycleNumber++;
+
+
+                if (people <= 0)
+                {
+                    souls = souls + people; // rééquillibrage souls
+                    people = 0;
+                    Debug.Log("GameOver");
+                    StopGame();
+                }
             }
         }
-
     }
 
 

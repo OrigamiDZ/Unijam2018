@@ -36,7 +36,13 @@ public class GameManager_Aure: MonoBehaviour {
     private List<GameObject> my_disasters = new List<GameObject>();
     private int numberOfDisasters;
 
-    private void PutGameInPause(bool inPause)
+    public bool GetGameIsPaused()
+    {
+        return gameIsPaused;
+    }
+
+
+    public void PutGameInPause(bool inPause)
     {
         if (inPause)
         {
@@ -112,7 +118,7 @@ public class GameManager_Aure: MonoBehaviour {
         PlayerPrefs.SetInt("numberOfHousesLVL1", cityScript.GetNumberOfHousesLVL1());
         PlayerPrefs.SetInt("numberOfHousesLVL2", cityScript.GetNumberOfHousesLVL2());
         PlayerPrefs.SetInt("lunarCycleNumber", cityScript.GetLunarCycleNumber());
-        PlayerPrefs.SetInt("timer", cityScript.timer);
+        PlayerPrefs.SetInt("timer", cityScript.getTimer());
 
         PlayerPrefs.SetFloat("ourRessourceSent", cityScript.Get_people());
 
