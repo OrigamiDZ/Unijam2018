@@ -41,6 +41,8 @@ public class InputManagerGodCouncil_Shems : MonoBehaviour {
         canvas.SetActive(false);
         noButton.onClick.AddListener(HideText);
         yesButton.onClick.AddListener(() => YesPressed(obj));
+        timer = 4f;
+        beginTimer = false;
     }
     // Update is called once per frame
     void Update()
@@ -78,8 +80,6 @@ public class InputManagerGodCouncil_Shems : MonoBehaviour {
             timer -= Time.deltaTime;
             if (timer < 0)
             {
-                timer = 4f;
-                beginTimer = false;
                 SceneManager.LoadScene(3);
             }
         }

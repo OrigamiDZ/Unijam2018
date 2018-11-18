@@ -17,9 +17,9 @@ public class GodsCouncil_Shems : MonoBehaviour {
     private GameObject gam;
     enum God
     {
-        Zeus, Hapi, Hades, Kronos, Quetzalcoatl
+        Zeus, Freyja, Osiris, Kronos, Quetzalcoatl
     };
-    //enum God { Zeus, Hapi, Hades, Kronos, Quetzalcoatl, Thor, Odin, Osiris, Amaterasu, Isis };
+    //enum God { Zeus, Freyja, Osiris, Kronos, Quetzalcoatl, Thor, Odin, Osiris, Amaterasu, Isis };
     // Use this for initialization
     void Start () {
         number_of_door = Random.Range(3, 6);
