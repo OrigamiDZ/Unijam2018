@@ -92,7 +92,7 @@ public class InTheGodsRoomManager_Shems : MonoBehaviour {
             PlayerPrefs.SetInt("souls", (int)(currentSouls + (randomnumber / 3) + 1));
         }
         Debug.Log("1");
-        //SceneManager.LoadScene(1);
+        SceneManager.LoadScene(1);
     }
     public void NoPressed()
     {
@@ -144,7 +144,7 @@ public class InTheGodsRoomManager_Shems : MonoBehaviour {
         {
         }
         
-        //SceneManager.LoadScene(1);
+        SceneManager.LoadScene(1);
     }
 
     void Start () {
