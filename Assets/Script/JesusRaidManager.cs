@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class JesusRaidManager : MonoBehaviour {
 
@@ -82,7 +83,7 @@ public class JesusRaidManager : MonoBehaviour {
         if (gameOn)
         {
             textTime.text = "Time : " + (endTime - Time.time);
-
+            
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 slider.value = slider.value + ourRessourceSent / enemyRessource;
@@ -90,21 +91,26 @@ public class JesusRaidManager : MonoBehaviour {
             if (slider.value >= slider.maxValue)
             {
                 StopCoroutine("SliderDecrease");
-                PlayerPrefs.SetFloat("raidVSJesusInhabitants", slider.maxValue);
+                PlayerPrefs.SetFloat("raidVSJesusInhabitants", 0.5f);
                 gameOn = false;
+                SceneManager.LoadScene(6);
             }
             if (slider.value <= slider.minValue)
             {
                 StopCoroutine("SliderDecrease");
-                PlayerPrefs.SetFloat("raidVSJesusInhabitants", slider.minValue/ 10.0f +0.5f);
+                PlayerPrefs.SetFloat("raidVSJesusInhabitants", 1.5f);
                 gameOn = false;
+                SceneManager.LoadScene(6);
             }
             if (endTime < Time.time)
             {
                 StopCoroutine("SliderDecrease");
                 textTime.text = "Time : 0";
-                PlayerPrefs.SetFloat("raidVSJesusInhabitants", slider.value/10.0f + 0.5f);
+                float raidVSJesusInhabitants = (1.0f / (slider.minValue + slider.maxValue)) * slider.value + 1.5f*slider.minValue + 0.5f*slider.maxValue;
+                PlayerPrefs.SetFloat("raidVSJesusInhabitants", raidVSJesusInhabitants);
                 gameOn = false;
+                SceneManager.LoadScene(6);
+
             }
         }
     }

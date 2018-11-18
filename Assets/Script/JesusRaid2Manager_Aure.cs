@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class JesusRaid2Manager_Aure : MonoBehaviour {
 
@@ -34,6 +35,7 @@ public class JesusRaid2Manager_Aure : MonoBehaviour {
 
     private float ourRessourceSent;
     private float enemyRessource;
+    private float bonusMalus;
 
     // Use this for initialization
     void Start()
@@ -47,9 +49,19 @@ public class JesusRaid2Manager_Aure : MonoBehaviour {
 
         textTime.text = "Time : " + gameDuration;
 
+        if (PlayerPrefs.HasKey("raidVSJesusInhabitants"))
+        {
+            bonusMalus = PlayerPrefs.GetFloat("raidVSJesusInhabitants");
+        }
+        else
+        {
+            bonusMalus = 1;
+            Debug.Log("bonusMalus is not defined, default values used");
+        }
+
         if (PlayerPrefs.HasKey("ourSoulsRessourceSentFinal"))
         {
-            ourRessourceSent = PlayerPrefs.GetFloat("ourSoulsRessourceSentFinal") * PlayerPrefs.GetFloat("raidVSJesusInhabitants");
+            ourRessourceSent = PlayerPrefs.GetFloat("ourSoulsRessourceSentFinal") * bonusMalus;
         }
         else
         {
@@ -97,21 +109,33 @@ public class JesusRaid2Manager_Aure : MonoBehaviour {
             if (slider.value >= slider.maxValue)
             {
                 StopCoroutine("SliderDecrease");
-                PlayerPrefs.SetFloat("finalScore", slider.maxValue);
+                PlayerPrefs.SetString("Final", "Win");
                 gameOn = false;
+                SceneManager.LoadScene(7);
             }
             if (slider.value <= slider.minValue)
             {
                 StopCoroutine("SliderDecrease");
-                PlayerPrefs.SetFloat("finalScore", slider.minValue);
+                PlayerPrefs.SetString("Final", "Lose");
                 gameOn = false;
+                SceneManager.LoadScene(7);
+
             }
             if (endTime < Time.time)
             {
                 StopCoroutine("SliderDecrease");
                 textTime.text = "Time : 0";
-                PlayerPrefs.SetFloat("finalScore", slider.value);
+                if (slider.value >= (slider.maxValue - slider.minValue)/2)
+                {
+                    PlayerPrefs.SetString("Final", "Win");
+                }
+                else
+                {
+                    PlayerPrefs.SetString("Final", "Lose");
+
+                }
                 gameOn = false;
+                SceneManager.LoadScene(7);
             }
         }
     }
