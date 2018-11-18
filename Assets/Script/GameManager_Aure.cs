@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 
 
@@ -16,6 +17,13 @@ public class GameManager_Aure: MonoBehaviour {
 
     [SerializeField]
     private float percentChanceOfADisaster;
+    [SerializeField]
+    private float totalOfLunarCircle;
+    [SerializeField]
+    private float jesusFinalInahibitantsRessource;
+    [SerializeField]
+    private float jesusFinalSoulsRessource;
+    
 
     private bool gameIsPaused;
 
@@ -91,6 +99,16 @@ public class GameManager_Aure: MonoBehaviour {
         {
             currentLunarCycleNumber = cityScript.GetLunarCycleNumber();
             CreateOrNotADisaster();
+        }
+
+        if (currentLunarCycleNumber >= totalOfLunarCircle)
+        {
+            PlayerPrefs.SetFloat("ourRessourceSentFinal", cityScript.Get_people());
+            PlayerPrefs.SetFloat("jesusInahibitantsRessourceFinal", jesusFinalInahibitantsRessource);
+            PlayerPrefs.SetFloat("ourSoulsRessourceSentFinal", cityScript.Get_souls());
+            PlayerPrefs.SetFloat("jesusSoulsRessourceFinal", jesusFinalSoulsRessource);
+
+            SceneManager.LoadScene(2);
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
