@@ -18,7 +18,7 @@ public class FinalSceneManager : MonoBehaviour {
         }
         else
         {
-            final = "Win";
+            final = "WinAJ";
             Debug.Log("final is not defined, default values used");
         }
 
